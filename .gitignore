@@ -1,0 +1,40 @@
+# --- Dependencias ---
+node_modules/
+.pnp
+.pnp.js
+
+# --- Build / artefactos ---
+.next/
+out/
+dist/
+build/
+*.tsbuildinfo
+
+# --- Entorno ---
+.env
+.env.*
+!.env.example
+
+# --- Credenciales locales (NUNCA subir) ---
+tools/creds.local.ps1
+
+# --- Datos migrados de la base legal (contenido sensible del cliente) ---
+db-export/data/
+db-export/pg/load_core.sql
+_export.log
+_export_report.json
+
+# --- Logs ---
+*.log
+logs/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# --- Sistema / editor ---
+.DS_Store
+Thumbs.db
+desktop.ini
+.vscode/
+.idea/
+*.tmp

@@ -1,0 +1,1408 @@
+[
+    [
+        {
+            "sch":  "dbo",
+            "tbl":  "HistGest",
+            "nrows":  477260,
+            "size_mb":  6130.9
+        },
+        {
+            "sch":  "dbo",
+            "tbl":  "LogDelRc",
+            "nrows":  945924,
+            "size_mb":  145.5
+        },
+        {
+            "sch":  "dbo",
+            "tbl":  "HistLock",
+            "nrows":  2091445,
+            "size_mb":  122.8
+        },
+        {
+            "sch":  "dbo",
+            "tbl":  "HistProc",
+            "nrows":  583985,
+            "size_mb":  105.2
+        },
+        {
+            "sch":  "dbo",
+            "tbl":  "Sucesos",
+            "nrows":  55446,
+            "size_mb":  26.6
+        },
+        {
+            "sch":  "dbo",
+            "tbl":  "Personas",
+            "nrows":  21736,
+            "size_mb":  16.2
+        },
+        {
+            "sch":  "dbo",
+            "tbl":  "Gestion",
+            "nrows":  22332,
+            "size_mb":  16.2
+        },
+        {
+            "sch":  "dbo",
+            "tbl":  "UserSesi",
+            "nrows":  79101,
+            "size_mb":  15.5
+        },
+        {
+            "sch":  "dbo",
+            "tbl":  "HistDeta",
+            "nrows":  23345,
+            "size_mb":  15.3
+        },
+        {
+            "sch":  "dbo",
+            "tbl":  "Localidad",
+            "nrows":  22146,
+            "size_mb":  11.0
+        },
+        {
+            "sch":  "dbo",
+            "tbl":  "Escritos",
+            "nrows":  760,
+            "size_mb":  10.5
+        },
+        {
+            "sch":  "dbo",
+            "tbl":  "Juzgado",
+            "nrows":  4611,
+            "size_mb":  8.5
+        },
+        {
+            "sch":  "dbo",
+            "tbl":  "Empleadr",
+            "nrows":  23759,
+            "size_mb":  6.7
+        },
+        {
+            "sch":  "dbo",
+            "tbl":  "JuzgJuec",
+            "nrows":  5797,
+            "size_mb":  5.7
+        },
+        {
+            "sch":  "dbo",
+            "tbl":  "CritBusq",
+            "nrows":  95,
+            "size_mb":  5.5
+        },
+        {
+            "sch":  "dbo",
+            "tbl":  "GestAcre",
+            "nrows":  22615,
+            "size_mb":  4.8
+        },
+        {
+            "sch":  "dbo",
+            "tbl":  "ListValr",
+            "nrows":  1594,
+            "size_mb":  4.0
+        },
+        {
+            "sch":  "dbo",
+            "tbl":  "GestDeu",
+            "nrows":  22678,
+            "size_mb":  3.4
+        },
+        {
+            "sch":  "dbo",
+            "tbl":  "MtdtDB",
+            "nrows":  5329,
+            "size_mb":  2.4
+        },
+        {
+            "sch":  "dbo",
+            "tbl":  "MtdtDB_2",
+            "nrows":  5329,
+            "size_mb":  2.4
+        },
+        {
+            "sch":  "dbo",
+            "tbl":  "CodPost",
+            "nrows":  22153,
+            "size_mb":  2.2
+        },
+        {
+            "sch":  "dbo",
+            "tbl":  "SegmChart",
+            "nrows":  45779,
+            "size_mb":  2.1
+        },
+        {
+            "sch":  "dbo",
+            "tbl":  "Departam",
+            "nrows":  21658,
+            "size_mb":  2.0
+        },
+        {
+            "sch":  "dbo",
+            "tbl":  "TipoComm",
+            "nrows":  368,
+            "size_mb":  0.9
+        },
+        {
+            "sch":  "dbo",
+            "tbl":  "Telefono",
+            "nrows":  1833,
+            "size_mb":  0.7
+        },
+        {
+            "sch":  "dbo",
+            "tbl":  "GestAbog",
+            "nrows":  8360,
+            "size_mb":  0.7
+        },
+        {
+            "sch":  "dbo",
+            "tbl":  "GenTestMigracion",
+            "nrows":  2922,
+            "size_mb":  0.4
+        },
+        {
+            "sch":  "dbo",
+            "tbl":  "GrupGDet",
+            "nrows":  18825,
+            "size_mb":  0.4
+        },
+        {
+            "sch":  "dbo",
+            "tbl":  "DBCfgUser",
+            "nrows":  1121,
+            "size_mb":  0.4
+        },
+        {
+            "sch":  "dbo",
+            "tbl":  "Agenda",
+            "nrows":  1654,
+            "size_mb":  0.4
+        },
+        {
+            "sch":  "dbo",
+            "tbl":  "PersDomi",
+            "nrows":  1720,
+            "size_mb":  0.4
+        },
+        {
+            "sch":  "dbo",
+            "tbl":  "Variab",
+            "nrows":  441,
+            "size_mb":  0.4
+        },
+        {
+            "sch":  "dbo",
+            "tbl":  "RControl",
+            "nrows":  2146,
+            "size_mb":  0.3
+        },
+        {
+            "sch":  "dbo",
+            "tbl":  "GenScrMigracion",
+            "nrows":  217,
+            "size_mb":  0.3
+        },
+        {
+            "sch":  "dbo",
+            "tbl":  "Funcion",
+            "nrows":  226,
+            "size_mb":  0.2
+        },
+        {
+            "sch":  "dbo",
+            "tbl":  "Documentos_Duplicados",
+            "nrows":  2171,
+            "size_mb":  0.2
+        },
+        {
+            "sch":  "dbo",
+            "tbl":  "DDN",
+            "nrows":  1791,
+            "size_mb":  0.2
+        },
+        {
+            "sch":  "dbo",
+            "tbl":  "Headers",
+            "nrows":  2,
+            "size_mb":  0.2
+        },
+        {
+            "sch":  "dbo",
+            "tbl":  "Caducida",
+            "nrows":  1489,
+            "size_mb":  0.2
+        },
+        {
+            "sch":  "dbo",
+            "tbl":  "DeptoJud",
+            "nrows":  169,
+            "size_mb":  0.1
+        },
+        {
+            "sch":  "dbo",
+            "tbl":  "Fueros",
+            "nrows":  441,
+            "size_mb":  0.1
+        },
+        {
+            "sch":  "dbo",
+            "tbl":  "Partido",
+            "nrows":  530,
+            "size_mb":  0.1
+        },
+        {
+            "sch":  "dbo",
+            "tbl":  "ListColu",
+            "nrows":  300,
+            "size_mb":  0.1
+        },
+        {
+            "sch":  "dbo",
+            "tbl":  "ListJoin",
+            "nrows":  145,
+            "size_mb":  0.1
+        },
+        {
+            "sch":  "dbo",
+            "tbl":  "ListTipo",
+            "nrows":  71,
+            "size_mb":  0.1
+        },
+        {
+            "sch":  "dbo",
+            "tbl":  "Responsa",
+            "nrows":  97,
+            "size_mb":  0.1
+        },
+        {
+            "sch":  "dbo",
+            "tbl":  "Resultad",
+            "nrows":  352,
+            "size_mb":  0.1
+        },
+        {
+            "sch":  "dbo",
+            "tbl":  "Zonas",
+            "nrows":  147,
+            "size_mb":  0.1
+        },
+        {
+            "sch":  "dbo",
+            "tbl":  "TipoEven",
+            "nrows":  189,
+            "size_mb":  0.1
+        },
+        {
+            "sch":  "dbo",
+            "tbl":  "TipoEvPe",
+            "nrows":  0,
+            "size_mb":  0.0
+        },
+        {
+            "sch":  "dbo",
+            "tbl":  "TipoGest",
+            "nrows":  3,
+            "size_mb":  0.0
+        },
+        {
+            "sch":  "dbo",
+            "tbl":  "TipoMail",
+            "nrows":  2,
+            "size_mb":  0.0
+        },
+        {
+            "sch":  "dbo",
+            "tbl":  "TipoProc",
+            "nrows":  70,
+            "size_mb":  0.0
+        },
+        {
+            "sch":  "dbo",
+            "tbl":  "TipoPrue",
+            "nrows":  10,
+            "size_mb":  0.0
+        },
+        {
+            "sch":  "dbo",
+            "tbl":  "TipoTele",
+            "nrows":  12,
+            "size_mb":  0.0
+        },
+        {
+            "sch":  "dbo",
+            "tbl":  "TipoComp",
+            "nrows":  6,
+            "size_mb":  0.0
+        },
+        {
+            "sch":  "dbo",
+            "tbl":  "TipoDocu",
+            "nrows":  10,
+            "size_mb":  0.0
+        },
+        {
+            "sch":  "dbo",
+            "tbl":  "TipoDomi",
+            "nrows":  6,
+            "size_mb":  0.0
+        },
+        {
+            "sch":  "dbo",
+            "tbl":  "ZonasD",
+            "nrows":  29,
+            "size_mb":  0.0
+        },
+        {
+            "sch":  "dbo",
+            "tbl":  "Whatsapp",
+            "nrows":  0,
+            "size_mb":  0.0
+        },
+        {
+            "sch":  "dbo",
+            "tbl":  "Llamadas",
+            "nrows":  0,
+            "size_mb":  0.0
+        },
+        {
+            "sch":  "dbo",
+            "tbl":  "UsersGrp",
+            "nrows":  18,
+            "size_mb":  0.0
+        },
+        {
+            "sch":  "dbo",
+            "tbl":  "Usuarios",
+            "nrows":  95,
+            "size_mb":  0.0
+        },
+        {
+            "sch":  "dbo",
+            "tbl":  "Results",
+            "nrows":  145,
+            "size_mb":  0.0
+        },
+        {
+            "sch":  "dbo",
+            "tbl":  "RsltCmpT",
+            "nrows":  7,
+            "size_mb":  0.0
+        },
+        {
+            "sch":  "dbo",
+            "tbl":  "SalaOper",
+            "nrows":  0,
+            "size_mb":  0.0
+        },
+        {
+            "sch":  "dbo",
+            "tbl":  "SalaSesi",
+            "nrows":  22,
+            "size_mb":  0.0
+        },
+        {
+            "sch":  "dbo",
+            "tbl":  "SalaVisi",
+            "nrows":  0,
+            "size_mb":  0.0
+        },
+        {
+            "sch":  "dbo",
+            "tbl":  "Recepc",
+            "nrows":  0,
+            "size_mb":  0.0
+        },
+        {
+            "sch":  "dbo",
+            "tbl":  "Rendicion",
+            "nrows":  3,
+            "size_mb":  0.0
+        },
+        {
+            "sch":  "dbo",
+            "tbl":  "Rep_Temp_Det",
+            "nrows":  0,
+            "size_mb":  0.0
+        },
+        {
+            "sch":  "dbo",
+            "tbl":  "RepCarte",
+            "nrows":  0,
+            "size_mb":  0.0
+        },
+        {
+            "sch":  "dbo",
+            "tbl":  "RepFinan",
+            "nrows":  0,
+            "size_mb":  0.0
+        },
+        {
+            "sch":  "dbo",
+            "tbl":  "PersEven",
+            "nrows":  3,
+            "size_mb":  0.0
+        },
+        {
+            "sch":  "dbo",
+            "tbl":  "PersImg",
+            "nrows":  0,
+            "size_mb":  0.0
+        },
+        {
+            "sch":  "dbo",
+            "tbl":  "PersMail",
+            "nrows":  36,
+            "size_mb":  0.0
+        },
+        {
+            "sch":  "dbo",
+            "tbl":  "PorAplic",
+            "nrows":  19,
+            "size_mb":  0.0
+        },
+        {
+            "sch":  "dbo",
+            "tbl":  "ProcesID",
+            "nrows":  68,
+            "size_mb":  0.0
+        },
+        {
+            "sch":  "dbo",
+            "tbl":  "Producto",
+            "nrows":  4,
+            "size_mb":  0.0
+        },
+        {
+            "sch":  "dbo",
+            "tbl":  "Provinci",
+            "nrows":  24,
+            "size_mb":  0.0
+        },
+        {
+            "sch":  "dbo",
+            "tbl":  "Rango",
+            "nrows":  23,
+            "size_mb":  0.0
+        },
+        {
+            "sch":  "dbo",
+            "tbl":  "TipoAttach",
+            "nrows":  0,
+            "size_mb":  0.0
+        },
+        {
+            "sch":  "dbo",
+            "tbl":  "TipoCamb",
+            "nrows":  0,
+            "size_mb":  0.0
+        },
+        {
+            "sch":  "dbo",
+            "tbl":  "TipoCntc",
+            "nrows":  4,
+            "size_mb":  0.0
+        },
+        {
+            "sch":  "dbo",
+            "tbl":  "Sucursal",
+            "nrows":  0,
+            "size_mb":  0.0
+        },
+        {
+            "sch":  "dbo",
+            "tbl":  "TaBlCall",
+            "nrows":  0,
+            "size_mb":  0.0
+        },
+        {
+            "sch":  "dbo",
+            "tbl":  "TarComp",
+            "nrows":  0,
+            "size_mb":  0.0
+        },
+        {
+            "sch":  "dbo",
+            "tbl":  "Tareas",
+            "nrows":  0,
+            "size_mb":  0.0
+        },
+        {
+            "sch":  "dbo",
+            "tbl":  "SegmCnf1",
+            "nrows":  0,
+            "size_mb":  0.0
+        },
+        {
+            "sch":  "dbo",
+            "tbl":  "SegmCnf2",
+            "nrows":  0,
+            "size_mb":  0.0
+        },
+        {
+            "sch":  "dbo",
+            "tbl":  "SegmCnf3",
+            "nrows":  4,
+            "size_mb":  0.0
+        },
+        {
+            "sch":  "dbo",
+            "tbl":  "Segmen_1",
+            "nrows":  6,
+            "size_mb":  0.0
+        },
+        {
+            "sch":  "dbo",
+            "tbl":  "Segmen_2",
+            "nrows":  2,
+            "size_mb":  0.0
+        },
+        {
+            "sch":  "dbo",
+            "tbl":  "SegmGes1",
+            "nrows":  0,
+            "size_mb":  0.0
+        },
+        {
+            "sch":  "dbo",
+            "tbl":  "SegmGes2",
+            "nrows":  0,
+            "size_mb":  0.0
+        },
+        {
+            "sch":  "dbo",
+            "tbl":  "SegmGes3",
+            "nrows":  3,
+            "size_mb":  0.0
+        },
+        {
+            "sch":  "dbo",
+            "tbl":  "SegmGes4",
+            "nrows":  0,
+            "size_mb":  0.0
+        },
+        {
+            "sch":  "dbo",
+            "tbl":  "SitBcra",
+            "nrows":  6,
+            "size_mb":  0.0
+        },
+        {
+            "sch":  "dbo",
+            "tbl":  "SitProPe",
+            "nrows":  0,
+            "size_mb":  0.0
+        },
+        {
+            "sch":  "dbo",
+            "tbl":  "SituGest",
+            "nrows":  46,
+            "size_mb":  0.0
+        },
+        {
+            "sch":  "dbo",
+            "tbl":  "SituProc",
+            "nrows":  35,
+            "size_mb":  0.0
+        },
+        {
+            "sch":  "dbo",
+            "tbl":  "ListFilt",
+            "nrows":  11,
+            "size_mb":  0.0
+        },
+        {
+            "sch":  "dbo",
+            "tbl":  "ListForm",
+            "nrows":  37,
+            "size_mb":  0.0
+        },
+        {
+            "sch":  "dbo",
+            "tbl":  "JuzgSecr",
+            "nrows":  0,
+            "size_mb":  0.0
+        },
+        {
+            "sch":  "dbo",
+            "tbl":  "Licencias",
+            "nrows":  0,
+            "size_mb":  0.0
+        },
+        {
+            "sch":  "dbo",
+            "tbl":  "ListBand",
+            "nrows":  185,
+            "size_mb":  0.0
+        },
+        {
+            "sch":  "dbo",
+            "tbl":  "PatrAcDe",
+            "nrows":  0,
+            "size_mb":  0.0
+        },
+        {
+            "sch":  "dbo",
+            "tbl":  "PatrActu",
+            "nrows":  0,
+            "size_mb":  0.0
+        },
+        {
+            "sch":  "dbo",
+            "tbl":  "PersCont",
+            "nrows":  0,
+            "size_mb":  0.0
+        },
+        {
+            "sch":  "dbo",
+            "tbl":  "PersDocu",
+            "nrows":  0,
+            "size_mb":  0.0
+        },
+        {
+            "sch":  "dbo",
+            "tbl":  "Nacion",
+            "nrows":  243,
+            "size_mb":  0.0
+        },
+        {
+            "sch":  "dbo",
+            "tbl":  "Nombres",
+            "nrows":  0,
+            "size_mb":  0.0
+        },
+        {
+            "sch":  "dbo",
+            "tbl":  "Numerador",
+            "nrows":  30,
+            "size_mb":  0.0
+        },
+        {
+            "sch":  "dbo",
+            "tbl":  "NumexCaj",
+            "nrows":  6,
+            "size_mb":  0.0
+        },
+        {
+            "sch":  "dbo",
+            "tbl":  "Oficinas",
+            "nrows":  0,
+            "size_mb":  0.0
+        },
+        {
+            "sch":  "dbo",
+            "tbl":  "LogsLT",
+            "nrows":  0,
+            "size_mb":  0.0
+        },
+        {
+            "sch":  "dbo",
+            "tbl":  "LogUpdt",
+            "nrows":  0,
+            "size_mb":  0.0
+        },
+        {
+            "sch":  "dbo",
+            "tbl":  "Lotes",
+            "nrows":  0,
+            "size_mb":  0.0
+        },
+        {
+            "sch":  "dbo",
+            "tbl":  "LTChats",
+            "nrows":  0,
+            "size_mb":  0.0
+        },
+        {
+            "sch":  "dbo",
+            "tbl":  "MailCarp",
+            "nrows":  0,
+            "size_mb":  0.0
+        },
+        {
+            "sch":  "dbo",
+            "tbl":  "MailDet",
+            "nrows":  0,
+            "size_mb":  0.0
+        },
+        {
+            "sch":  "dbo",
+            "tbl":  "MailiTel",
+            "nrows":  0,
+            "size_mb":  0.0
+        },
+        {
+            "sch":  "dbo",
+            "tbl":  "Mails",
+            "nrows":  0,
+            "size_mb":  0.0
+        },
+        {
+            "sch":  "dbo",
+            "tbl":  "Mensajes",
+            "nrows":  0,
+            "size_mb":  0.0
+        },
+        {
+            "sch":  "dbo",
+            "tbl":  "Monedas",
+            "nrows":  2,
+            "size_mb":  0.0
+        },
+        {
+            "sch":  "dbo",
+            "tbl":  "Mora",
+            "nrows":  51,
+            "size_mb":  0.0
+        },
+        {
+            "sch":  "dbo",
+            "tbl":  "MovsCaja",
+            "nrows":  0,
+            "size_mb":  0.0
+        },
+        {
+            "sch":  "dbo",
+            "tbl":  "MovsCVal",
+            "nrows":  0,
+            "size_mb":  0.0
+        },
+        {
+            "sch":  "dbo",
+            "tbl":  "MovsCxCm",
+            "nrows":  0,
+            "size_mb":  0.0
+        },
+        {
+            "sch":  "dbo",
+            "tbl":  "MovsCxVl",
+            "nrows":  0,
+            "size_mb":  0.0
+        },
+        {
+            "sch":  "dbo",
+            "tbl":  "MPCupDet",
+            "nrows":  0,
+            "size_mb":  0.0
+        },
+        {
+            "sch":  "dbo",
+            "tbl":  "MPCupon",
+            "nrows":  0,
+            "size_mb":  0.0
+        },
+        {
+            "sch":  "dbo",
+            "tbl":  "MsgGroup",
+            "nrows":  0,
+            "size_mb":  0.0
+        },
+        {
+            "sch":  "dbo",
+            "tbl":  "Documentos_Duplicados_sd",
+            "nrows":  319,
+            "size_mb":  0.0
+        },
+        {
+            "sch":  "dbo",
+            "tbl":  "DomiCons",
+            "nrows":  4,
+            "size_mb":  0.0
+        },
+        {
+            "sch":  "dbo",
+            "tbl":  "Envios",
+            "nrows":  0,
+            "size_mb":  0.0
+        },
+        {
+            "sch":  "dbo",
+            "tbl":  "Equipo",
+            "nrows":  2,
+            "size_mb":  0.0
+        },
+        {
+            "sch":  "dbo",
+            "tbl":  "EsCntExt",
+            "nrows":  6,
+            "size_mb":  0.0
+        },
+        {
+            "sch":  "dbo",
+            "tbl":  "GestDocu",
+            "nrows":  0,
+            "size_mb":  0.0
+        },
+        {
+            "sch":  "dbo",
+            "tbl":  "GestEqui",
+            "nrows":  600,
+            "size_mb":  0.0
+        },
+        {
+            "sch":  "dbo",
+            "tbl":  "GestCods",
+            "nrows":  0,
+            "size_mb":  0.0
+        },
+        {
+            "sch":  "dbo",
+            "tbl":  "HG_Reaplic",
+            "nrows":  0,
+            "size_mb":  0.0
+        },
+        {
+            "sch":  "dbo",
+            "tbl":  "HistDocu",
+            "nrows":  0,
+            "size_mb":  0.0
+        },
+        {
+            "sch":  "dbo",
+            "tbl":  "HistEmpl",
+            "nrows":  8,
+            "size_mb":  0.0
+        },
+        {
+            "sch":  "dbo",
+            "tbl":  "HistRefe",
+            "nrows":  0,
+            "size_mb":  0.0
+        },
+        {
+            "sch":  "dbo",
+            "tbl":  "Informes",
+            "nrows":  0,
+            "size_mb":  0.0
+        },
+        {
+            "sch":  "dbo",
+            "tbl":  "IPAdress",
+            "nrows":  0,
+            "size_mb":  0.0
+        },
+        {
+            "sch":  "dbo",
+            "tbl":  "GrupGest",
+            "nrows":  9,
+            "size_mb":  0.0
+        },
+        {
+            "sch":  "dbo",
+            "tbl":  "GrupoFac",
+            "nrows":  0,
+            "size_mb":  0.0
+        },
+        {
+            "sch":  "dbo",
+            "tbl":  "HBDetalle",
+            "nrows":  0,
+            "size_mb":  0.0
+        },
+        {
+            "sch":  "dbo",
+            "tbl":  "HBLotes",
+            "nrows":  0,
+            "size_mb":  0.0
+        },
+        {
+            "sch":  "dbo",
+            "tbl":  "HD_Reaplic",
+            "nrows":  0,
+            "size_mb":  0.0
+        },
+        {
+            "sch":  "dbo",
+            "tbl":  "Gestiones_Exp_Repetido_1",
+            "nrows":  146,
+            "size_mb":  0.0
+        },
+        {
+            "sch":  "dbo",
+            "tbl":  "Gestiones_Exp_Repetido_2",
+            "nrows":  87,
+            "size_mb":  0.0
+        },
+        {
+            "sch":  "dbo",
+            "tbl":  "GestPrue",
+            "nrows":  1,
+            "size_mb":  0.0
+        },
+        {
+            "sch":  "dbo",
+            "tbl":  "GestTerc",
+            "nrows":  0,
+            "size_mb":  0.0
+        },
+        {
+            "sch":  "dbo",
+            "tbl":  "Graficos",
+            "nrows":  0,
+            "size_mb":  0.0
+        },
+        {
+            "sch":  "dbo",
+            "tbl":  "Diff_MtdtDB",
+            "nrows":  0,
+            "size_mb":  0.0
+        },
+        {
+            "sch":  "dbo",
+            "tbl":  "DocGDets",
+            "nrows":  0,
+            "size_mb":  0.0
+        },
+        {
+            "sch":  "dbo",
+            "tbl":  "DocsGDet",
+            "nrows":  0,
+            "size_mb":  0.0
+        },
+        {
+            "sch":  "dbo",
+            "tbl":  "DocsGest",
+            "nrows":  0,
+            "size_mb":  0.0
+        },
+        {
+            "sch":  "dbo",
+            "tbl":  "DBConfig",
+            "nrows":  88,
+            "size_mb":  0.0
+        },
+        {
+            "sch":  "dbo",
+            "tbl":  "DDI",
+            "nrows":  231,
+            "size_mb":  0.0
+        },
+        {
+            "sch":  "dbo",
+            "tbl":  "Cuentas",
+            "nrows":  0,
+            "size_mb":  0.0
+        },
+        {
+            "sch":  "dbo",
+            "tbl":  "Concepto",
+            "nrows":  7,
+            "size_mb":  0.0
+        },
+        {
+            "sch":  "dbo",
+            "tbl":  "ConcTiEv",
+            "nrows":  31,
+            "size_mb":  0.0
+        },
+        {
+            "sch":  "dbo",
+            "tbl":  "CondTrib",
+            "nrows":  4,
+            "size_mb":  0.0
+        },
+        {
+            "sch":  "dbo",
+            "tbl":  "ConfGral",
+            "nrows":  0,
+            "size_mb":  0.0
+        },
+        {
+            "sch":  "dbo",
+            "tbl":  "ConfxCli",
+            "nrows":  0,
+            "size_mb":  0.0
+        },
+        {
+            "sch":  "dbo",
+            "tbl":  "ContItem",
+            "nrows":  0,
+            "size_mb":  0.0
+        },
+        {
+            "sch":  "dbo",
+            "tbl":  "Contrato",
+            "nrows":  0,
+            "size_mb":  0.0
+        },
+        {
+            "sch":  "dbo",
+            "tbl":  "CriAplic",
+            "nrows":  33,
+            "size_mb":  0.0
+        },
+        {
+            "sch":  "dbo",
+            "tbl":  "EstAcue",
+            "nrows":  7,
+            "size_mb":  0.0
+        },
+        {
+            "sch":  "dbo",
+            "tbl":  "Estado",
+            "nrows":  2,
+            "size_mb":  0.0
+        },
+        {
+            "sch":  "dbo",
+            "tbl":  "EstaProc",
+            "nrows":  38,
+            "size_mb":  0.0
+        },
+        {
+            "sch":  "dbo",
+            "tbl":  "EstCivil",
+            "nrows":  8,
+            "size_mb":  0.0
+        },
+        {
+            "sch":  "dbo",
+            "tbl":  "EstrateD",
+            "nrows":  52,
+            "size_mb":  0.0
+        },
+        {
+            "sch":  "dbo",
+            "tbl":  "EstrateM",
+            "nrows":  2,
+            "size_mb":  0.0
+        },
+        {
+            "sch":  "dbo",
+            "tbl":  "Estudios",
+            "nrows":  1,
+            "size_mb":  0.0
+        },
+        {
+            "sch":  "dbo",
+            "tbl":  "Faxes",
+            "nrows":  0,
+            "size_mb":  0.0
+        },
+        {
+            "sch":  "dbo",
+            "tbl":  "FE_AlicuotasIVA",
+            "nrows":  10,
+            "size_mb":  0.0
+        },
+        {
+            "sch":  "dbo",
+            "tbl":  "FE_Comprobantes",
+            "nrows":  0,
+            "size_mb":  0.0
+        },
+        {
+            "sch":  "dbo",
+            "tbl":  "FE_Estados",
+            "nrows":  4,
+            "size_mb":  0.0
+        },
+        {
+            "sch":  "dbo",
+            "tbl":  "FE_Facturante",
+            "nrows":  0,
+            "size_mb":  0.0
+        },
+        {
+            "sch":  "dbo",
+            "tbl":  "FE_Items",
+            "nrows":  0,
+            "size_mb":  0.0
+        },
+        {
+            "sch":  "dbo",
+            "tbl":  "FE_Productos",
+            "nrows":  0,
+            "size_mb":  0.0
+        },
+        {
+            "sch":  "dbo",
+            "tbl":  "FE_Pto_Vta",
+            "nrows":  0,
+            "size_mb":  0.0
+        },
+        {
+            "sch":  "dbo",
+            "tbl":  "FE_TipoFact",
+            "nrows":  2,
+            "size_mb":  0.0
+        },
+        {
+            "sch":  "dbo",
+            "tbl":  "Feriados",
+            "nrows":  0,
+            "size_mb":  0.0
+        },
+        {
+            "sch":  "dbo",
+            "tbl":  "FmtDocum",
+            "nrows":  4,
+            "size_mb":  0.0
+        },
+        {
+            "sch":  "dbo",
+            "tbl":  "Footers",
+            "nrows":  3,
+            "size_mb":  0.0
+        },
+        {
+            "sch":  "dbo",
+            "tbl":  "FormTele",
+            "nrows":  4,
+            "size_mb":  0.0
+        },
+        {
+            "sch":  "dbo",
+            "tbl":  "Cajas",
+            "nrows":  6,
+            "size_mb":  0.0
+        },
+        {
+            "sch":  "dbo",
+            "tbl":  "CajaSesD",
+            "nrows":  4,
+            "size_mb":  0.0
+        },
+        {
+            "sch":  "dbo",
+            "tbl":  "CajaSesi",
+            "nrows":  2,
+            "size_mb":  0.0
+        },
+        {
+            "sch":  "dbo",
+            "tbl":  "CaliEven",
+            "nrows":  0,
+            "size_mb":  0.0
+        },
+        {
+            "sch":  "dbo",
+            "tbl":  "CalifTel",
+            "nrows":  6,
+            "size_mb":  0.0
+        },
+        {
+            "sch":  "dbo",
+            "tbl":  "CaliSubj",
+            "nrows":  3,
+            "size_mb":  0.0
+        },
+        {
+            "sch":  "dbo",
+            "tbl":  "CalSxRes",
+            "nrows":  21,
+            "size_mb":  0.0
+        },
+        {
+            "sch":  "dbo",
+            "tbl":  "Campana",
+            "nrows":  3,
+            "size_mb":  0.0
+        },
+        {
+            "sch":  "dbo",
+            "tbl":  "CarParte",
+            "nrows":  17,
+            "size_mb":  0.0
+        },
+        {
+            "sch":  "dbo",
+            "tbl":  "CarRelac",
+            "nrows":  0,
+            "size_mb":  0.0
+        },
+        {
+            "sch":  "dbo",
+            "tbl":  "CarRepre",
+            "nrows":  6,
+            "size_mb":  0.0
+        },
+        {
+            "sch":  "dbo",
+            "tbl":  "Cartera",
+            "nrows":  10,
+            "size_mb":  0.0
+        },
+        {
+            "sch":  "dbo",
+            "tbl":  "Casos_Cli_con_1_Juicio",
+            "nrows":  259,
+            "size_mb":  0.0
+        },
+        {
+            "sch":  "dbo",
+            "tbl":  "CfgSkins",
+            "nrows":  4,
+            "size_mb":  0.0
+        },
+        {
+            "sch":  "dbo",
+            "tbl":  "ClasePer",
+            "nrows":  5,
+            "size_mb":  0.0
+        },
+        {
+            "sch":  "dbo",
+            "tbl":  "CntrlUpd",
+            "nrows":  176,
+            "size_mb":  0.0
+        },
+        {
+            "sch":  "dbo",
+            "tbl":  "Apl_HistDeta",
+            "nrows":  0,
+            "size_mb":  0.0
+        },
+        {
+            "sch":  "dbo",
+            "tbl":  "Apl_HistGest",
+            "nrows":  0,
+            "size_mb":  0.0
+        },
+        {
+            "sch":  "dbo",
+            "tbl":  "Area",
+            "nrows":  3,
+            "size_mb":  0.0
+        },
+        {
+            "sch":  "dbo",
+            "tbl":  "Auxili_2",
+            "nrows":  0,
+            "size_mb":  0.0
+        },
+        {
+            "sch":  "dbo",
+            "tbl":  "Auxili_3",
+            "nrows":  0,
+            "size_mb":  0.0
+        },
+        {
+            "sch":  "dbo",
+            "tbl":  "Auxili_P",
+            "nrows":  0,
+            "size_mb":  0.0
+        },
+        {
+            "sch":  "dbo",
+            "tbl":  "Auxili_P2",
+            "nrows":  0,
+            "size_mb":  0.0
+        },
+        {
+            "sch":  "dbo",
+            "tbl":  "Auxili_P3",
+            "nrows":  0,
+            "size_mb":  0.0
+        },
+        {
+            "sch":  "dbo",
+            "tbl":  "Auxiliar",
+            "nrows":  0,
+            "size_mb":  0.0
+        },
+        {
+            "sch":  "dbo",
+            "tbl":  "Bienes",
+            "nrows":  0,
+            "size_mb":  0.0
+        },
+        {
+            "sch":  "dbo",
+            "tbl":  "BienImgs",
+            "nrows":  0,
+            "size_mb":  0.0
+        },
+        {
+            "sch":  "dbo",
+            "tbl":  "Abogados",
+            "nrows":  36,
+            "size_mb":  0.0
+        },
+        {
+            "sch":  "dbo",
+            "tbl":  "ActIndD",
+            "nrows":  0,
+            "size_mb":  0.0
+        },
+        {
+            "sch":  "dbo",
+            "tbl":  "ActIndM",
+            "nrows":  0,
+            "size_mb":  0.0
+        },
+        {
+            "sch":  "dbo",
+            "tbl":  "ActTasD",
+            "nrows":  209,
+            "size_mb":  0.0
+        },
+        {
+            "sch":  "dbo",
+            "tbl":  "ActTasM",
+            "nrows":  0,
+            "size_mb":  0.0
+        },
+        {
+            "sch":  "dbo",
+            "tbl":  "AcueDeta",
+            "nrows":  0,
+            "size_mb":  0.0
+        },
+        {
+            "sch":  "dbo",
+            "tbl":  "AcuePerf",
+            "nrows":  6,
+            "size_mb":  0.0
+        },
+        {
+            "sch":  "dbo",
+            "tbl":  "AcuePMP",
+            "nrows":  0,
+            "size_mb":  0.0
+        },
+        {
+            "sch":  "dbo",
+            "tbl":  "Acuerdos",
+            "nrows":  0,
+            "size_mb":  0.0
+        },
+        {
+            "sch":  "dbo",
+            "tbl":  "AdeGasto",
+            "nrows":  0,
+            "size_mb":  0.0
+        }
+    ],
+    [
+        {
+            "kind":  "TABLES",
+            "n":  229
+        },
+        {
+            "kind":  "VIEWS",
+            "n":  3
+        },
+        {
+            "kind":  "PROCEDURES",
+            "n":  204
+        },
+        {
+            "kind":  "FUNCTIONS",
+            "n":  0
+        },
+        {
+            "kind":  "TRIGGERS",
+            "n":  320
+        },
+        {
+            "kind":  "FKS",
+            "n":  0
+        },
+        {
+            "kind":  "INDEXES",
+            "n":  538
+        }
+    ]
+]

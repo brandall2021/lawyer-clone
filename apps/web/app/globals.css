@@ -1,0 +1,246 @@
+:root {
+  --bg: #1e1f22;
+  --panel: #2b2d31;
+  --panel-2: #232428;
+  --border: #3a3c42;
+  --text: #e6e6e6;
+  --muted: #9aa0a6;
+  --accent: #4c8bf5;
+  --accent-2: #3574e0;
+  --row-alt: #26272b;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: "Segoe UI", Tahoma, sans-serif;
+  font-size: 13px;
+}
+
+a {
+  color: var(--accent);
+  text-decoration: none;
+}
+a:hover {
+  text-decoration: underline;
+}
+
+.app {
+  display: grid;
+  grid-template-columns: 220px 1fr;
+  grid-template-rows: 44px 1fr;
+  height: 100vh;
+}
+
+.titlebar {
+  grid-column: 1 / 3;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 0 14px;
+  background: var(--panel-2);
+  border-bottom: 1px solid var(--border);
+  font-weight: 600;
+}
+
+.titlebar .status {
+  margin-left: auto;
+  font-weight: 400;
+  color: var(--muted);
+}
+
+.sidebar {
+  background: var(--panel-2);
+  border-right: 1px solid var(--border);
+  padding: 10px 0;
+}
+
+.sidebar .nav-item {
+  display: block;
+  padding: 8px 16px;
+  color: var(--text);
+  border-left: 3px solid transparent;
+}
+.sidebar .nav-item:hover {
+  background: var(--panel);
+  text-decoration: none;
+}
+.sidebar .nav-item.active {
+  border-left-color: var(--accent);
+  background: var(--panel);
+}
+
+.content {
+  padding: 16px;
+  overflow: auto;
+}
+
+h1 {
+  font-size: 18px;
+  margin: 0 0 12px;
+}
+h2 {
+  font-size: 14px;
+  margin: 0 0 8px;
+}
+
+.toolbar {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+input[type="text"] {
+  background: var(--panel);
+  border: 1px solid var(--border);
+  color: var(--text);
+  padding: 6px 10px;
+  border-radius: 4px;
+  outline: none;
+  min-width: 260px;
+}
+input[type="text"]:focus {
+  border-color: var(--accent);
+}
+
+button {
+  background: var(--accent);
+  color: #fff;
+  border: none;
+  padding: 6px 14px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+button:hover {
+  background: var(--accent-2);
+}
+button:disabled {
+  opacity: 0.5;
+  cursor: default;
+}
+
+table.grid {
+  width: 100%;
+  border-collapse: collapse;
+  background: var(--panel);
+  border: 1px solid var(--border);
+}
+table.grid th,
+table.grid td {
+  text-align: left;
+  padding: 6px 10px;
+  border-bottom: 1px solid var(--border);
+  white-space: nowrap;
+}
+table.grid th {
+  background: var(--panel-2);
+  position: sticky;
+  top: 0;
+}
+table.grid tr:nth-child(even) td {
+  background: var(--row-alt);
+}
+table.grid tr:hover td {
+  background: #30323a;
+}
+
+.pager {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  margin-top: 10px;
+  color: var(--muted);
+}
+
+.card {
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 14px 16px;
+  display: inline-block;
+  min-width: 180px;
+  margin: 0 12px 12px 0;
+}
+.card .num {
+  font-size: 24px;
+  font-weight: 700;
+}
+.card .lbl {
+  color: var(--muted);
+}
+
+.detail-grid {
+  display: grid;
+  grid-template-columns: 240px 1fr;
+  gap: 0;
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  overflow: hidden;
+}
+.detail-grid .k {
+  padding: 6px 12px;
+  background: var(--panel-2);
+  border-bottom: 1px solid var(--border);
+  color: var(--muted);
+  font-family: Consolas, monospace;
+}
+.detail-grid .v {
+  padding: 6px 12px;
+  border-bottom: 1px solid var(--border);
+  word-break: break-word;
+}
+
+.muted {
+  color: var(--muted);
+}
+
+select {
+  background: var(--panel);
+  border: 1px solid var(--border);
+  color: var(--text);
+  padding: 6px 10px;
+  border-radius: 4px;
+  outline: none;
+}
+select:focus {
+  border-color: var(--accent);
+}
+
+.grid-scroll {
+  overflow-x: auto;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+}
+.grid-scroll table.grid {
+  border: none;
+}
+
+button.linklike {
+  background: transparent;
+  color: var(--accent);
+  padding: 0;
+}
+button.linklike:hover {
+  background: transparent;
+  text-decoration: underline;
+}
+
+.detail {
+  margin-top: 16px;
+}
+
+.linklist {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px 16px;
+  padding: 8px 0;
+}

@@ -1,0 +1,13 @@
+SELECT 'Personas' t, count(*) FROM "Personas"
+UNION ALL SELECT 'Gestion', count(*) FROM "Gestion"
+UNION ALL SELECT 'Localidad', count(*) FROM "Localidad"
+UNION ALL SELECT 'Empleadr', count(*) FROM "Empleadr"
+UNION ALL SELECT 'GestAcre', count(*) FROM "GestAcre"
+UNION ALL SELECT 'GestDeu', count(*) FROM "GestDeu"
+UNION ALL SELECT 'MtdtDB', count(*) FROM "MtdtDB"
+UNION ALL SELECT 'ListBand', count(*) FROM "ListBand"
+UNION ALL SELECT 'ListColu', count(*) FROM "ListColu"
+UNION ALL SELECT 'DBConfig', count(*) FROM "DBConfig"
+UNION ALL SELECT 'Variab', count(*) FROM "Variab"
+UNION ALL SELECT 'Usuarios', count(*) FROM "Usuarios"
+ORDER BY 1;

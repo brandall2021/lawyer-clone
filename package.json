@@ -1,0 +1,22 @@
+{
+  "name": "lawyer-clone",
+  "private": true,
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev:api": "npm --workspace api run dev",
+    "dev:web": "npm --workspace web run dev",
+    "start:api": "npm --workspace api run start",
+    "start:web": "npm --workspace web run start",
+    "typecheck": "npm --workspace api run typecheck && npm --workspace web run typecheck"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs"
+}

@@ -1,0 +1,764 @@
+TABLES (229)
+table                         cols       rows        MB
+--------------------------------------------------------
+Abogados                        26         36       0,0
+ActIndD                         15          0       0,0
+ActIndM                         16          0       0,0
+ActTasD                         14        209       0,0
+ActTasM                         16          0       0,0
+AcueDeta                        29          0       0,0
+AcuePerf                       173          6       0,0
+AcuePMP                         14          0       0,0
+Acuerdos                        70          0       0,0
+AdeGasto                        37          0       0,0
+Agenda                          38       1654       0,4
+Apl_HistDeta                    90          0       0,0
+Apl_HistGest                   110          0       0,0
+Area                            19          3       0,0
+Auxili_2                        11          0       0,0
+Auxili_3                        11          0       0,0
+Auxili_P                        11          0       0,0
+Auxili_P2                       11          0       0,0
+Auxili_P3                       11          0       0,0
+Auxiliar                        11          0       0,0
+Bienes                          43          0       0,0
+BienImgs                         6          0       0,0
+Caducida                        27       1489       0,2
+Cajas                           52          6       0,0
+CajaSesD                        24          4       0,0
+CajaSesi                        34          2       0,0
+CaliEven                        15          0       0,0
+CalifTel                        16          6       0,0
+CaliSubj                        16          3       0,0
+CalSxRes                        16         21       0,0
+Campana                         40          3       0,0
+CarParte                        16         17       0,0
+CarRelac                        16          0       0,0
+CarRepre                        15          6       0,0
+Cartera                         17         10       0,0
+Casos_Cli_con_1_Juicio           8        259       0,0
+CfgSkins                        14          4       0,0
+ClasePer                        15          5       0,0
+CntrlUpd                         2        176       0,0
+CodPost                         19      22153       2,2
+Concepto                        16          7       0,0
+ConcTiEv                        12         31       0,0
+CondTrib                        20          4       0,0
+ConfGral                        19          0       0,0
+ConfxCli                        24          0       0,0
+ContItem                        29          0       0,0
+Contrato                        19          0       0,0
+CriAplic                        51         33       0,0
+CritBusq                        30         95       5,5
+Cuentas                         53          0       0,0
+DBCfgUser                       19       1121       0,4
+DBConfig                        11         88       0,0
+DDI                             13        231       0,0
+DDN                             19       1791       0,2
+Departam                        19      21658       2,0
+DeptoJud                        17        169       0,1
+Diff_MtdtDB                     12          0       0,0
+DocGDets                        45          0       0,0
+DocsGDet                         6          0       0,0
+DocsGest                        44          0       0,0
+Documentos_Duplicados            7       2171       0,2
+Documentos_Duplicados_sd         8        319       0,0
+DomiCons                        17          4       0,0
+Empleadr                        36      23759       6,7
+Envios                          31          0       0,0
+Equipo                          56          2       0,0
+EsCntExt                        16          6       0,0
+Escritos                        66        760      10,5
+EstAcue                         21          7       0,0
+Estado                          19          2       0,0
+EstaProc                        18         38       0,0
+EstCivil                        15          8       0,0
+EstrateD                        46         52       0,0
+EstrateM                        17          2       0,0
+Estudios                        54          1       0,0
+Faxes                           35          0       0,0
+FE_AlicuotasIVA                 13         10       0,0
+FE_Comprobantes                 44          0       0,0
+FE_Estados                      13          4       0,0
+FE_Facturante                   29          0       0,0
+FE_Items                        25          0       0,0
+FE_Productos                    14          0       0,0
+FE_Pto_Vta                      15          0       0,0
+FE_TipoFact                     22          2       0,0
+Feriados                        18          0       0,0
+FmtDocum                        24          4       0,0
+Footers                         15          3       0,0
+FormTele                        14          4       0,0
+Fueros                          16        441       0,1
+Funcion                         18        226       0,2
+GenScrMigracion                 14        217       0,3
+GenTestMigracion                 4       2922       0,4
+GestAbog                        18       8360       0,7
+GestAcre                        44      22615       4,8
+GestCods                        17          0       0,0
+GestDeu                         47      22678       3,4
+GestDocu                        18          0       0,0
+GestEqui                        18        600       0,0
+Gestion                        121      22332      16,2
+Gestiones_Exp_Repetido_1         6        146       0,0
+Gestiones_Exp_Repetido_2         6         87       0,0
+GestPrue                        58          1       0,0
+GestTerc                        41          0       0,0
+Graficos                        24          0       0,0
+GrupGDet                         3      18825       0,4
+GrupGest                        29          9       0,0
+GrupoFac                        14          0       0,0
+HBDetalle                       42          0       0,0
+HBLotes                         39          0       0,0
+HD_Reaplic                      89          0       0,0
+Headers                         15          2       0,2
+HG_Reaplic                     109          0       0,0
+HistDeta                        88      23345      15,3
+HistDocu                        20          0       0,0
+HistEmpl                        28          8       0,0
+HistGest                       108     477260    6130,9
+HistLock                        14    2091445     122,8
+HistProc                        20     583985     105,2
+HistRefe                        19          0       0,0
+Informes                        23          0       0,0
+IPAdress                        16          0       0,0
+Juzgado                         33       4611       8,5
+JuzgJuec                        18       5797       5,7
+JuzgSecr                        13          0       0,0
+Licencias                       47          0       0,0
+ListBand                        29        185       0,0
+ListColu                        58        300       0,1
+ListFilt                        19         11       0,0
+ListForm                        50         37       0,0
+ListJoin                        22        145       0,1
+ListTipo                        24         71       0,1
+ListValr                        72       1594       4,0
+Llamadas                        16          0       0,0
+Localidad                       25      22146      11,0
+LogDelRc                        34     945924     145,5
+LogsLT                          20          0       0,0
+LogUpdt                         24          0       0,0
+Lotes                           26          0       0,0
+LTChats                         10          0       0,0
+MailCarp                        20          0       0,0
+MailDet                          5          0       0,0
+MailiTel                        17          0       0,0
+Mails                           55          0       0,0
+Mensajes                        14          0       0,0
+Monedas                         20          2       0,0
+Mora                            22         51       0,0
+MovsCaja                        48          0       0,0
+MovsCVal                        28          0       0,0
+MovsCxCm                        17          0       0,0
+MovsCxVl                        19          0       0,0
+MPCupDet                        32          0       0,0
+MPCupon                         32          0       0,0
+MsgGroup                        14          0       0,0
+MtdtDB                          15       5329       2,4
+MtdtDB_2                        15       5329       2,4
+Nacion                          16        243       0,0
+Nombres                          1          0       0,0
+Numerador                        2         30       0,0
+NumexCaj                        15          6       0,0
+Oficinas                        26          0       0,0
+Partido                         20        530       0,1
+PatrAcDe                        51          0       0,0
+PatrActu                        24          0       0,0
+PersCont                        17          0       0,0
+PersDocu                        16          0       0,0
+PersDomi                        42       1720       0,4
+PersEven                        45          3       0,0
+PersImg                         21          0       0,0
+PersMail                        27         36       0,0
+Personas                       111      21736      16,2
+PorAplic                        52         19       0,0
+ProcesID                        11         68       0,0
+Producto                        20          4       0,0
+Provinci                        20         24       0,0
+Rango                           19         23       0,0
+RControl                        16       2146       0,3
+Recepc                          27          0       0,0
+Rendicion                       29          3       0,0
+Rep_Temp_Det                   207          0       0,0
+RepCarte                        13          0       0,0
+RepFinan                         8          0       0,0
+Responsa                        81         97       0,1
+Resultad                        39        352       0,1
+Results                         40        145       0,0
+RsltCmpT                        16          7       0,0
+SalaOper                        23          0       0,0
+SalaSesi                        27         22       0,0
+SalaVisi                        34          0       0,0
+SegmChart                        4      45779       2,1
+SegmCnf1                        20          0       0,0
+SegmCnf2                        19          0       0,0
+SegmCnf3                        20          4       0,0
+Segmen_1                        16          6       0,0
+Segmen_2                        16          2       0,0
+SegmGes1                        26          0       0,0
+SegmGes2                        26          0       0,0
+SegmGes3                        26          3       0,0
+SegmGes4                        26          0       0,0
+SitBcra                         13          6       0,0
+SitProPe                        16          0       0,0
+SituGest                        18         46       0,0
+SituProc                        17         35       0,0
+Sucesos                         16      55446      26,6
+Sucursal                        30          0       0,0
+TaBlCall                        77          0       0,0
+TarComp                         20          0       0,0
+Tareas                          49          0       0,0
+Telefono                        41       1833       0,7
+TipoAttach                       4          0       0,0
+TipoCamb                        13          0       0,0
+TipoCntc                        17          4       0,0
+TipoComm                        54        368       0,9
+TipoComp                        15          6       0,0
+TipoDocu                        19         10       0,0
+TipoDomi                        15          6       0,0
+TipoEven                        49        189       0,1
+TipoEvPe                        14          0       0,0
+TipoGest                        32          3       0,0
+TipoMail                        15          2       0,0
+TipoProc                        22         70       0,0
+TipoPrue                        16         10       0,0
+TipoTele                        15         12       0,0
+UserSesi                        22      79101      15,5
+UsersGrp                        10         18       0,0
+Usuarios                         6         95       0,0
+Variab                          22        441       0,4
+Whatsapp                        32          0       0,0
+Zonas                           19        147       0,1
+ZonasD                          17         29       0,0
+
+MODULES (527)
+-- P  (204) --
+   Acre1eroApell
+   Acre1eroNombr
+   AcreXGest
+   Act_Calc_Monto_Act
+   Act_Calc_Monto_Act_All
+   Act_Get_Coef
+   Act_Get_Coef_Factor_Fijo
+   Act_Get_Coef_Indices_Ref
+   Act_Get_Coef_Int_Compuesto
+   Act_Get_Coef_Int_Directo
+   Act_Get_Coef_Tasas_Ref
+   ActualizarNumerador
+   Apl_Ajusta_Cuota_a_Pago
+   Apl_Ajusta_Pago_a_Cuota
+   Apl_Aplica_Criterio
+   Apl_Aplica_Pago_a_Cuenta
+   Apl_Aplica_Pago_a_Cuota
+   Apl_Aplica_Pago_a_Cuota_Parc
+   Apl_Aplica_Porcentajes
+   CalificaAcuerdos
+   DeudXGest
+   DptoJudNombreXjuz
+   EmpleadorNombre
+   Exec_Test
+   FueroNombreXjuz
+   GenGrants
+   GetCentral
+   GetClientes1eroApell
+   GetClientes1eroNombr
+   GetPartidas
+   GetTotalesWhatsApp
+   GetUsoLicencias
+   GetUsuarios_BD
+   GetUsuarioySede
+   Inserta_Alerta
+   Inserta_Deudas_Incluidas
+   JuzgadoNombre
+   JuzgadoSecretar
+   Mail_Set_Send
+   Migra_a_50_Gen_Script
+   Migra_HistProc_40
+   Migracion_x_Lotes
+   Mnt_AplPago_Bckp
+   Mnt_AplPago_Clon_HD
+   Mnt_AplPago_Cuo_2_Pago
+   Mnt_AplPago_Cuo_2_Pago_c_Punit
+   Mnt_AplPago_Ext
+   Mnt_Caducidades
+   Mnt_Calif_Mora_All
+   Mnt_Calif_Mora_Gest
+   Mnt_CompletaEstrategia
+   Mnt_CompletaEstratEve
+   Mnt_Dupl_Atach
+   Mnt_DuplicaEstrategia
+   Mnt_DuplicaEvento
+   Mnt_DuplicaPerfil
+   Mnt_DuplicaReporte
+   Mnt_Get_Excl_Mora
+   Mnt_GetRelacUsu
+   Mnt_Otros_Productos
+   Mnt_Pos_Efe_All
+   Mnt_Pos_Efe_Gest
+   Mnt_Rest_Respon_Asig_Auto
+   Mnt_Rev_Caduc_Gest
+   Mnt_Set_Excl_Mora
+   Mnt_SGM_Dias_Resp_All
+   Mnt_Valor_a_Fecha
+   Msj_Get_Inicial
+   Msj_Get_New_Chat
+   Msj_Get_PageDown
+   Msj_Get_PageUp
+   PersAllFieldsXCod
+   PersXCodigo
+   Prox_Codigo
+   Prox_Codigo_DS
+   ProxNroMailP
+   ProxNroMov
+   Rep_Actividad_Operadores
+   Rep_Actividad_Operadores_x_Dia
+   Rep_Actividad_Operadores_x_Equipo
+   Rep_Distrib_Cart_Resp
+   Rep_Distrib_Cliente_Resp
+   Rep_Distrib_SGM_Resp
+   Rep_Get_Dias_Mora
+   Rep_Get_Enum_Int_Comp
+   Rep_Get_Fec_Tx_Mo_Imp_CD
+   Rep_Get_Fec_Tx_Mo_Imp_CD_1L
+   Rep_Get_Fec_Tx_Mo_Imp_CD_X
+   Rep_Get_Lista_Abog
+   Rep_Get_Lista_Abog_Caract
+   Rep_Get_Lista_Aux_G1
+   Rep_Get_Lista_Aux_G2
+   Rep_Get_Lista_Aux_G3
+   Rep_Get_Lista_Telef_Calif
+   Rep_Get_Lista_Telef_Cli_Calif
+   Rep_Get_Mails_1Cli
+   Rep_Get_Mails_1Cli_Col
+   Rep_Get_Mails_1Op
+   Rep_Get_Mails_1Op_Col
+   Rep_Get_Mails_Cli_Col
+   Rep_Get_Mails_Op_Col
+   Rep_Get_Mails_V_1Cli
+   Rep_Get_Mails_V_1Cli_Col
+   Rep_Get_Mails_V_1Op
+   Rep_Get_Mails_V_1Op_Col
+   Rep_Get_Mails_V_Cli_Col
+   Rep_Get_Mails_V_Op_Col
+   Rep_Get_Ref_2_CD
+   Rep_Get_Ref_Cap_CD
+   Rep_Get_Ref_CD
+   Rep_Get_Ref_F1_CD
+   Rep_Get_Ref_F2_CD
+   Rep_Get_Ref_F3_CD
+   Rep_Get_Ref_Imp_CD
+   Rep_Get_Ref_Textos_CD
+   Rep_Get_Ref_Tx_Cap_CD
+   Rep_Get_Ref_Tx_F1_CD
+   Rep_Get_Ref_Tx_F2_CD
+   Rep_Get_Ref_Tx_F3_CD
+   Rep_Get_Ref_Tx_Imp_CD
+   Rep_Get_Tablero_Call
+   Rep_Get_Txt_CD
+   Rep_Pagos_x_Dia
+   Rep_Vintage
+   Set_Riesgo_Gest
+   SetLockGest
+   Sgm_Bajas_All
+   Sgm_Cant_Prod_a_SGM
+   Sgm_Dias_Gestion_All
+   Sgm_Dias_Resp_All
+   Sgm_Equi_All
+   Sgm_Equi_Gest
+   Sgm_Fec_Rec_All
+   Sgm_Fec_Rec_Gest
+   Sgm_Monto_Tran_All
+   Sgm_Monto_Tran_Gest
+   Sgm_Mora_All
+   Sgm_Mora_Gest
+   Sgm_Rango_All
+   Sgm_Rango_Gest
+   Sgm_Sld_Venc_a_Factor_All
+   Sgm_Sld_Venc_a_Factor_Gest
+   Sgm_Tot_Pagos_a_Factor_All
+   Sgm_Tot_Pagos_a_Factor_Gest
+   Sgm_Total_Dem_All
+   Sgm_Total_Dem_Gest
+   Sgm_Val_Cuo_a_Factor_All
+   Sgm_Val_Cuo_a_Factor_Gest
+   Util_Dom_Chk_CP
+   Util_Dom_Chk_CP_GetDept
+   Util_Dom_Chk_CP_GetLocali
+   Util_Dom_Chk_CP_GetPart
+   Util_Dom_Chk_CP_GetProv
+   Util_Dom_Chk_CP_Vs_PPD
+   Util_Dom_GetDataFromCP
+   Util_Dom_SetDataFromCP
+   Util_Dom_SetDataFromCP_All
+   Util_Dom_VerifDataFromCP
+   Util_Dom_VerifDataFromCP_All
+   Util_Drop_Gests_GRP
+   Util_Duplica_Gest
+   Util_ExportMetadata
+   Util_GenBackup
+   Util_Get_Act_Usu
+   Util_GetDiferDB
+   Util_GetDiferDB_Import
+   Util_GetEstado_Cajas
+   Util_GetInfoDrives
+   Util_GetInfoFiles
+   Util_GetInserts
+   Util_GetListaCampos
+   Util_GetLog_In_Out_Usu
+   Util_GetMetadata
+   Util_GetPK
+   Util_GetSesionesAbiertas
+   Util_Reg_ActBD
+   Util_Renum_NroMov
+   Util_Renum_NroMov_All
+   Util_Resta_Dias
+   Util_Resta_DiasHabiles
+   Util_Suma_Dias
+   Util_Suma_DiasHabiles
+   Util_TMP_Redondea_Acuerdos
+   Util_TMP_Redondea_Todo
+   Util_TMP_Redondeos_x_Gestion
+   Util_Ult_Ses_x_PC
+   Valid_CreateNameUser
+   Valid_CreatePass
+   Valid_CreateUserLT
+   Valid_DisableUserSQL
+   Valid_DropOldUsers
+   Valid_DrpUsers
+   Valid_EnableUserSQL
+   Valid_GenUsers
+   Valid_GetPassCod
+   Valid_GetPassNom
+   Valid_GetUserLT
+   Valid_GetUserSQLCod
+   Valid_GetUserSQLNom
+   Valid_GrantsUserSQL
+   Valid_Init
+   Valid_ReNewUsers
+   Valid_SetUsrLTMl
+   ZonaNombreXjuz
+-- TRIGGER (320) --
+   Del_Abogados
+   Del_ActIndD
+   Del_ActIndM
+   Del_ActTasD
+   Del_ActTasM
+   Del_AcuePerf
+   Del_AcuePMP
+   Del_Acuerdos_LTLU
+   Del_Area
+   Del_Auxili_2
+   Del_Auxili_3
+   Del_Auxili_P
+   Del_Auxili_P2
+   Del_Auxili_P3
+   Del_Auxiliar
+   Del_Cajas
+   Del_CaliEven
+   Del_CalifTel
+   Del_CaliSubj
+   Del_CalSxRes
+   Del_Campana
+   Del_CarParte
+   Del_CarRelac
+   Del_CarRepre
+   Del_Cartera
+   Del_Concepto
+   Del_ConcTiEv
+   Del_CondTrib
+   Del_ConfGral
+   Del_ConfxCli
+   Del_ContItem
+   Del_Contrato
+   Del_CriAplic
+   Del_CritBusq
+   Del_Cuentas
+   Del_DBCfgUser
+   Del_DBConfig
+   Del_Departam
+   Del_DeptoJud
+   Del_DomiCons
+   Del_Equipo
+   Del_EsCntExt
+   Del_Escritos
+   Del_EstAcue
+   Del_Estado
+   Del_EstaProc
+   Del_EstCivil
+   Del_EstrateM
+   Del_Estudios
+   Del_Feriados
+   Del_FmtDocum
+   Del_Footers
+   Del_FormTele
+   Del_Fueros
+   Del_Graficos
+   Del_GrupoFac
+   Del_Headers
+   Del_HistDeta
+   Del_HistGest
+   Del_Informes
+   Del_Juzgado
+   Del_JuzgJuec
+   Del_Licencias
+   Del_ListBand
+   Del_ListColu
+   Del_ListFilt
+   Del_ListForm
+   Del_ListJoin
+   Del_ListTipo
+   Del_ListValr
+   Del_MailCarp
+   Del_Monedas
+   Del_Mora
+   Del_MovsCaja
+   Del_MovsCaja_LTLU
+   Del_MPCupDet
+   Del_MPCupon
+   Del_Nacion
+   Del_Oficinas
+   Del_Partido
+   Del_PatrAcDe
+   Del_PatrActu
+   Del_PorAplic
+   Del_Producto
+   Del_Provinci
+   Del_Rango
+   Del_Responsa
+   Del_Results
+   Del_RsltCmpT
+   Del_SalaVisi
+   Del_SegmCnf1
+   Del_SegmCnf2
+   Del_SegmCnf3
+   Del_Segmen_1
+   Del_Segmen_2
+   Del_SegmGes1
+   Del_SegmGes2
+   Del_SegmGes3
+   Del_SegmGes4
+   Del_SitBCRA
+   Del_SitProPe
+   Del_SituGest
+   Del_SituProc
+   Del_Sucursal
+   Del_TarComp
+   Del_Tareas
+   Del_TipoCamb
+   Del_TipoCntc
+   Del_TipoDocu
+   Del_TipoDomi
+   Del_TipoEven
+   Del_TipoEvPe
+   Del_TipoGest
+   Del_TipoMail
+   Del_TipoProc
+   Del_TipoPrue
+   Del_TipoTele
+   Del_UsersGrp
+   Del_Variab
+   Del_Zonas
+   Del_ZonasD
+   Ins_Acuedeta
+   Ins_Acuerdos
+   Ins_DeptoJud
+   Ins_DocGest
+   Ins_GestAbog
+   Ins_GestAcre
+   Ins_GestDeu
+   Ins_GestPrue
+   Ins_GestTerc
+   Ins_HistDeta
+   Ins_HistGest
+   Ins_HistGest_Tbl
+   Ins_HistLock_Tbl
+   Ins_Juzgado
+   Ins_LogUpdt
+   Ins_Mensajes
+   Ins_MovsCaja
+   Ins_MovsCVal
+   Ins_MovsCxCm
+   Ins_MovsCxVl
+   Ins_PersDomi
+   Ins_PersEven
+   Ins_PersImg
+   Ins_PersMail
+   Ins_Personas
+   Ins_Telefono
+   Ins_TipoComm
+   InsertGestion
+   InsertHistProc
+   InsertUserSesi
+   Mnt_Abogados
+   Mnt_ActIndD
+   Mnt_ActIndM
+   Mnt_ActTasD
+   Mnt_ActTasM
+   Mnt_AcuePerf
+   Mnt_AcuePMP
+   Mnt_AdeGasto
+   Mnt_Agenda
+   Mnt_Area
+   Mnt_Auxili_2
+   Mnt_Auxili_3
+   Mnt_Auxili_P
+   Mnt_Auxili_P2
+   Mnt_Auxili_P3
+   Mnt_Auxiliar
+   Mnt_Bienes
+   Mnt_Caducida
+   Mnt_Cajas
+   Mnt_CajaSesD
+   Mnt_CajaSesi
+   Mnt_CaliEven
+   Mnt_CalifTel
+   Mnt_CaliSubj
+   Mnt_CalSxRes
+   Mnt_Campana
+   Mnt_CarParte
+   Mnt_CarRelac
+   Mnt_CarRepre
+   Mnt_Cartera
+   Mnt_CfgSkins
+   Mnt_ClasePer
+   Mnt_Concepto
+   Mnt_ConcTiEv
+   Mnt_CondTrib
+   Mnt_ConfGral
+   Mnt_ConfxCli
+   Mnt_ContItem
+   Mnt_Contrato
+   Mnt_CriAplic
+   Mnt_CritBusq
+   Mnt_Cuentas
+   Mnt_DBCfgUser
+   Mnt_DBConfig
+   Mnt_Departam
+   Mnt_DomiCons
+   Mnt_Empleadr
+   Mnt_Envios
+   Mnt_Equipo
+   Mnt_EsCntExt
+   Mnt_Escritos
+   Mnt_EstAcue
+   Mnt_Estado
+   Mnt_EstaProc
+   Mnt_EstCivil
+   Mnt_EstrateD
+   Mnt_EstrateM
+   Mnt_Estudios
+   Mnt_Faxes
+   Mnt_Feriados
+   Mnt_FmtDocum
+   Mnt_Footers
+   Mnt_FormTele
+   Mnt_Funcion
+   Mnt_GestDocu
+   Mnt_Graficos
+   Mnt_GrupGest
+   Mnt_GrupoFac
+   Mnt_Headers
+   Mnt_HistDocu
+   Mnt_Informes
+   Mnt_Licencias
+   Mnt_ListBand
+   Mnt_ListColu
+   Mnt_ListFilt
+   Mnt_ListForm
+   Mnt_ListJoin
+   Mnt_ListTipo
+   Mnt_ListValr
+   Mnt_Lotes
+   Mnt_MailCarp
+   Mnt_Mails
+   Mnt_Monedas
+   Mnt_Mora
+   Mnt_MPCupDet
+   Mnt_MPCupon
+   Mnt_MsgGroup
+   Mnt_Nacion
+   Mnt_Oficinas
+   Mnt_Partido
+   Mnt_PatrAcDe
+   Mnt_PatrActu
+   Mnt_PersCont
+   Mnt_PersDocu
+   Mnt_PorAplic
+   Mnt_ProcesID
+   Mnt_Producto
+   Mnt_Provinci
+   Mnt_Rango
+   Mnt_Recepc
+   Mnt_Rendicion
+   Mnt_Responsa
+   Mnt_Resultad
+   Mnt_Results
+   Mnt_RsltCmpT
+   Mnt_SalaOper
+   Mnt_SalaSesi
+   Mnt_SalaVisi
+   Mnt_SegmCnf1
+   Mnt_SegmCnf2
+   Mnt_SegmCnf3
+   Mnt_Segmen_1
+   Mnt_Segmen_2
+   Mnt_SegmGes1
+   Mnt_SegmGes2
+   Mnt_SegmGes3
+   Mnt_SegmGes4
+   Mnt_SitBCRA
+   Mnt_SitProPe
+   Mnt_SituGest
+   Mnt_SituProc
+   Mnt_Sucursal
+   Mnt_TarComp
+   Mnt_Tareas
+   Mnt_TipoAttach
+   Mnt_TipoCamb
+   Mnt_TipoCntc
+   Mnt_TipoDocu
+   Mnt_TipoDomi
+   Mnt_TipoEven
+   Mnt_TipoEvPe
+   Mnt_TipoGest
+   Mnt_TipoMail
+   Mnt_TipoProc
+   Mnt_TipoPrue
+   Mnt_TipoTele
+   Mnt_UserSesi
+   Mnt_UsersGrp
+   Mnt_Variab
+   Mnt_WhatsApp
+   Mnt_ZonasD
+   Mod_Acuedeta
+   Mod_Acuerdos
+   Mod_DeptoJud
+   Mod_GestAbog
+   Mod_GestAcre
+   Mod_GestCods
+   Mod_GestDeu
+   Mod_GestEqui
+   Mod_GestPrue
+   Mod_GestTerc
+   Mod_HistDeta
+   Mod_HistEmpl
+   Mod_HistGest
+   Mod_HistGest_Tbl
+   Mod_HistLock_Tbl
+   Mod_Juzgado
+   Mod_MovsCaja
+   Mod_MovsCVal
+   Mod_MovsCxCm
+   Mod_MovsCxVl
+   Mod_PersDomi
+   Mod_PersEven
+   Mod_PersImg
+   Mod_PersMail
+   Mod_Personas
+   Mod_Telefono
+   Mod_TipoComm
+   ModGestion
+-- V  (3) --
+   Acreedores
+   Clientes
+   Partidas
