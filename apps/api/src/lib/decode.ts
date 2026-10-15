@@ -30,6 +30,11 @@ const MANUAL: Decoder[] = [
   { tipo: 'P', campo: 'PEDomCodDep', etiqueta: 'Departamento', tabla: 'Departam', cod: 'DPCodigo', des: 'DPDescrip' },
   // Teléfono
   { tipo: 'T', campo: 'TFTipoTel', etiqueta: 'Tipo', tabla: 'TipoTele', cod: 'TTECodigo', des: 'TTEDescrip' },
+  // Correo
+  { tipo: 'M', campo: 'PMTipo', etiqueta: 'Tipo de Correo', tabla: 'TipoMail', cod: 'TMACodigo', des: 'TMADescrip' },
+  // Agenda
+  { tipo: 'A', campo: 'AGCodTipEve', etiqueta: 'Tipo de Evento', tabla: 'TipoEven', cod: 'TECodTIpEve', des: 'TEDesTIpEve' },
+  { tipo: 'A', campo: 'AGCodUsu', etiqueta: 'Responsable', tabla: 'Responsa', cod: 'RECodResp', des: 'REDesResp' },
 ]
 
 type ListTipoRow = {
@@ -97,11 +102,16 @@ async function catalogMap(tabla: string, cod: string, des: string): Promise<Map<
   const t = await resolveTable(tabla)
   if (!t) return new Map()
   const meta = (await getTables()).get(t)!
-  const cols = new Set(meta.columns.map((c) => c.name))
-  if (!cols.has(cod) || !cols.has(des)) return new Map()
+  const names = meta.columns.map((c) => c.name)
+  const resolveCol = (n: string) =>
+    names.find((c) => c === n) ??
+    names.find((c) => c.toLowerCase() === n.toLowerCase())
+  const codCol = resolveCol(cod)
+  const desCol = resolveCol(des)
+  if (!codCol || !desCol) return new Map()
 
   const rows = await prisma.$queryRawUnsafe<Array<{ cod: unknown; des: string | null }>>(
-    `SELECT ${ident(cod)} AS cod, ${ident(des)} AS des FROM ${ident(t)}`
+    `SELECT ${ident(codCol)} AS cod, ${ident(desCol)} AS des FROM ${ident(t)}`
   )
   const map = new Map<string, string>()
   for (const r of rows) {
@@ -123,6 +133,27 @@ export async function decodeValue(
   if (!d) return null
   const map = await catalogMap(d.tabla, d.cod, d.des)
   return map.get(String(value).trim()) ?? null
+}
+
+export const EVENTO_COLUMNS = `"HGCodigo", "HGCodOriGes", "HGCodGes", "HGFecha", "HGHora", "HGCodTipEve", "HGCodResult",
+       "HGCodConc", "HGCodResp", "HGCodUsu", "HGMoneda",
+       "HGImporte"::float8 AS "HGImporte",
+       "HGPendiente", "HGPositivo", "HGEfectivo", "HGCaja", "HGTipoCont",
+       "HGTexto", "HGObsText", "HGFecEje", "HGFecAlta"`
+
+export async function decodeEvento(
+  e: Record<string, unknown>
+): Promise<Record<string, unknown>> {
+  const [tipoEvento, resultado, concepto, responsable, operador, moneda] =
+    await Promise.all([
+      decodeValue('E', 'HGCodTipEve', e.HGCodTipEve),
+      decodeValue('E', 'HGCodResult', e.HGCodResult),
+      decodeValue('E', 'HGCodConc', e.HGCodConc),
+      decodeValue('E', 'HGCodResp', e.HGCodResp),
+      decodeValue('E', 'HGCodUsu', e.HGCodUsu),
+      decodeValue('G', 'GEMoneda', e.HGMoneda),
+    ])
+  return { ...e, tipoEvento, resultado, concepto, responsable, operador, moneda }
 }
 
 export type DecodedField = {

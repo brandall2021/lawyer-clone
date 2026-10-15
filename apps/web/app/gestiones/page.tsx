@@ -2,7 +2,8 @@
 
 import { useCallback, useEffect, useState } from 'react'
 import Link from 'next/link'
-import { fmtCell, getJSON } from '../lib/format'
+import { useRouter } from 'next/navigation'
+import { fmtCell, getJSON, sendJSON } from '../lib/format'
 
 type Gestion = {
   GECodOri: number
@@ -21,11 +22,32 @@ type Resp = { total: number; page: number; pageSize: number; rows: Gestion[] }
 const PAGE = 50
 
 export default function GestionesPage() {
+  const router = useRouter()
   const [q, setQ] = useState('')
   const [query, setQuery] = useState('')
   const [page, setPage] = useState(1)
   const [data, setData] = useState<Resp | null>(null)
   const [loading, setLoading] = useState(false)
+  const [creating, setCreating] = useState(false)
+  const [nf, setNf] = useState({ caratula: '', numCar: '', nroPart: '' })
+  const [nmsg, setNmsg] = useState<string | null>(null)
+
+  async function createGestion() {
+    if (!nf.caratula.trim() && !nf.numCar.trim()) {
+      setNmsg('Ingrese carátula o número.')
+      return
+    }
+    const r = await sendJSON<{ GECodOri: number; GECodGest: number }>('/api/gestiones', 'POST', {
+      GECaratula: nf.caratula,
+      GENumCar: nf.numCar,
+      GENroPart: nf.nroPart,
+    })
+    if (!r.ok || !r.data) {
+      setNmsg(`Error: ${r.error}`)
+      return
+    }
+    router.push(`/gestiones/${r.data.GECodOri}/${r.data.GECodGest}`)
+  }
 
   const load = useCallback(async () => {
     setLoading(true)
@@ -61,11 +83,40 @@ export default function GestionesPage() {
           onChange={(e) => setQ(e.target.value)}
         />
         <button type="submit">Buscar</button>
+        <button type="button" className="btn ghost" onClick={() => { setCreating((v) => !v); setNmsg(null) }}>
+          {creating ? 'Cancelar' : 'Nueva'}
+        </button>
         {loading && <span className="muted">cargando…</span>}
         <span className="muted" style={{ marginLeft: 'auto' }}>
           {data ? `${data.total} registros` : ''}
         </span>
       </form>
+
+      {creating && (
+        <div className="form-card">
+          <h2>Nueva gestión</h2>
+          <div className="form-grid">
+            <label>
+              <span>Carátula</span>
+              <input value={nf.caratula} onChange={(e) => setNf((f) => ({ ...f, caratula: e.target.value }))} />
+            </label>
+            <label>
+              <span>N° Carpeta</span>
+              <input value={nf.numCar} onChange={(e) => setNf((f) => ({ ...f, numCar: e.target.value }))} />
+            </label>
+            <label>
+              <span>N° Particular</span>
+              <input value={nf.nroPart} onChange={(e) => setNf((f) => ({ ...f, nroPart: e.target.value }))} />
+            </label>
+          </div>
+          {nmsg && <p style={{ color: '#ff8080' }}>{nmsg}</p>}
+          <div className="row">
+            <button className="btn" onClick={createGestion}>
+              Crear
+            </button>
+          </div>
+        </div>
+      )}
 
       <table className="grid">
         <thead>

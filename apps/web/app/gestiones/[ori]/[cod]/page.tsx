@@ -3,7 +3,7 @@
 import { useEffect, useState } from 'react'
 import { useParams } from 'next/navigation'
 import Link from 'next/link'
-import { fmtCell, getJSON } from '../../../lib/format'
+import { fmtCell, getJSON, sendJSON } from '../../../lib/format'
 
 type PersonaRef = {
   PECodOri: number
@@ -54,6 +54,8 @@ type Agenda = {
   AGFecha: string
   AGTexto: string
   AGEstado: number
+  tipoEvento: string | null
+  responsable: string | null
 }
 
 type DecodedField = {
@@ -64,9 +66,26 @@ type DecodedField = {
   descripcion: string | null
 }
 
+type Evento = {
+  HGCodigo: number
+  HGFecha: string | null
+  HGHora: string | null
+  HGImporte: number | null
+  HGPendiente: boolean
+  HGTexto: string
+  HGObsText: string | null
+  tipoEvento: string | null
+  resultado: string | null
+  concepto: string | null
+  responsable: string | null
+  operador: string | null
+  moneda: string | null
+}
+
 type Resp = {
   gestion: Record<string, unknown>
   campos: DecodedField[]
+  eventos: Evento[]
   historialCount: number
   deudores: Deudor[]
   acreedores: Acreedor[]
@@ -74,6 +93,36 @@ type Resp = {
   telefonos: Telefono[]
   agenda: Agenda[]
 }
+
+const FORM_FIELDS: Array<{ name: string; label: string; type?: string }> = [
+  { name: 'GECaratula', label: 'Carátula' },
+  { name: 'GENumCar', label: 'N° Carpeta' },
+  { name: 'GENroPart', label: 'N° Particular' },
+  { name: 'GENumExt1', label: 'N° Ext 1' },
+  { name: 'GENumExt2', label: 'N° Ext 2' },
+  { name: 'GEMontoTran', label: 'Monto', type: 'number' },
+  { name: 'GEMoneda', label: 'Moneda', type: 'number' },
+  { name: 'GECodTipGes', label: 'Tipo Gestión', type: 'number' },
+  { name: 'GECodEst', label: 'Estado', type: 'number' },
+  { name: 'GECodSit', label: 'Situación', type: 'number' },
+  { name: 'GECodCar', label: 'Cartera', type: 'number' },
+  { name: 'GECodAre', label: 'Área', type: 'number' },
+  { name: 'GECodRes', label: 'Responsable', type: 'number' },
+  { name: 'GECodSuperv', label: 'Supervisor', type: 'number' },
+  { name: 'GECodEstrat', label: 'Estrategia', type: 'number' },
+  { name: 'GECodMora', label: 'Mora', type: 'number' },
+  { name: 'GECodProd', label: 'Producto', type: 'number' },
+  { name: 'GECodCamp', label: 'Campaña', type: 'number' },
+  { name: 'GECodEstu', label: 'Estudio', type: 'number' },
+  { name: 'GECodSeg1', label: 'Segmento 1', type: 'number' },
+  { name: 'GECodSeg2', label: 'Segmento 2', type: 'number' },
+  { name: 'GECodSeg3', label: 'Segmento 3', type: 'number' },
+  { name: 'GECodSeg4', label: 'Segmento 4', type: 'number' },
+  { name: 'GEHabilitada', label: 'Habilitada', type: 'checkbox' },
+  { name: 'GEPrincipal', label: 'Principal', type: 'checkbox' },
+  { name: 'GEComent', label: 'Comentario' },
+  { name: 'GEObserv', label: 'Observaciones' },
+]
 
 function personaCell(p: PersonaRef) {
   if (!p) return <span className="muted">—</span>
@@ -90,15 +139,48 @@ export default function GestionDetailPage() {
   const cod = params?.cod as string
   const [data, setData] = useState<Resp | null>(null)
   const [err, setErr] = useState<string | null>(null)
+  const [editing, setEditing] = useState(false)
+  const [form, setForm] = useState<Record<string, string>>({})
+  const [msg, setMsg] = useState<string | null>(null)
+
+  async function load() {
+    if (!ori || !cod) return
+    const r = await getJSON<Resp>(`/api/gestiones/${ori}/${cod}`)
+    if (!r) setErr('Gestión no encontrada')
+    else setData(r)
+  }
 
   useEffect(() => {
-    if (!ori || !cod) return
-    ;(async () => {
-      const r = await getJSON<Resp>(`/api/gestiones/${ori}/${cod}`)
-      if (!r) setErr('Gestión no encontrada')
-      else setData(r)
-    })()
+    load()
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [ori, cod])
+
+  function startEdit() {
+    if (!data) return
+    const f: Record<string, string> = {}
+    for (const { name, type } of FORM_FIELDS) {
+      const v = data.gestion[name]
+      f[name] = type === 'checkbox' ? String(Boolean(v)) : v === null || v === undefined ? '' : fmtCell(v)
+    }
+    setForm(f)
+    setMsg(null)
+    setEditing(true)
+  }
+
+  async function save() {
+    const body: Record<string, unknown> = {}
+    for (const { name, type } of FORM_FIELDS) {
+      body[name] = type === 'checkbox' ? form[name] === 'true' : form[name] ?? ''
+    }
+    const r = await sendJSON(`/api/gestiones/${ori}/${cod}`, 'PATCH', body)
+    if (!r.ok) {
+      setMsg(`Error: ${r.error}`)
+      return
+    }
+    setEditing(false)
+    setMsg('Guardado correctamente.')
+    await load()
+  }
 
   return (
     <div>
@@ -112,6 +194,60 @@ export default function GestionDetailPage() {
         </span>
       </h1>
       {err && <p style={{ color: '#ff8080' }}>{err}</p>}
+
+      {data && !editing && (
+        <p>
+          <button className="btn" onClick={startEdit}>
+            Editar
+          </button>{' '}
+          {msg && <span className="muted">{msg}</span>}
+        </p>
+      )}
+
+      {data && editing && (
+        <div className="form-card">
+          <h2>Editar gestión</h2>
+          <div className="form-grid">
+            {FORM_FIELDS.map(({ name, label, type }) =>
+              type === 'checkbox' ? (
+                <label key={name} style={{ flexDirection: 'row', alignItems: 'center', gap: 8 }}>
+                  <input
+                    type="checkbox"
+                    checked={form[name] === 'true'}
+                    onChange={(e) => setForm((f) => ({ ...f, [name]: String(e.target.checked) }))}
+                    style={{ width: 'auto' }}
+                  />
+                  <span>{label}</span>
+                </label>
+              ) : (
+                <label key={name}>
+                  <span>{label}</span>
+                  <input
+                    type={type ?? 'text'}
+                    value={form[name] ?? ''}
+                    onChange={(e) => setForm((f) => ({ ...f, [name]: e.target.value }))}
+                  />
+                </label>
+              )
+            )}
+          </div>
+          {msg && <p style={{ color: '#ff8080' }}>{msg}</p>}
+          <div className="row">
+            <button className="btn" onClick={save}>
+              Guardar
+            </button>
+            <button
+              className="btn ghost"
+              onClick={() => {
+                setEditing(false)
+                setMsg(null)
+              }}
+            >
+              Cancelar
+            </button>
+          </div>
+        </div>
+      )}
 
       {data && (
         <>
@@ -265,16 +401,18 @@ export default function GestionDetailPage() {
               <thead>
                 <tr>
                   <th>Fecha</th>
+                  <th>Tipo</th>
                   <th>Texto</th>
-                  <th>Estado</th>
+                  <th>Responsable</th>
                 </tr>
               </thead>
               <tbody>
                 {data.agenda.map((a) => (
                   <tr key={a.AGCodigo}>
                     <td>{fmtCell(a.AGFecha)}</td>
+                    <td>{a.tipoEvento ?? <span className="muted">—</span>}</td>
                     <td>{fmtCell(a.AGTexto)}</td>
-                    <td>{a.AGEstado}</td>
+                    <td>{a.responsable ?? <span className="muted">—</span>}</td>
                   </tr>
                 ))}
               </tbody>
@@ -283,14 +421,42 @@ export default function GestionDetailPage() {
             <p className="muted">Sin eventos.</p>
           )}
 
-          <h2 style={{ marginTop: 16 }}>Historial</h2>
-          <p className="muted">
+          <h2 style={{ marginTop: 16 }}>Historial de eventos ({data.eventos.length})</h2>
+          {data.eventos.length ? (
+            <table className="grid">
+              <thead>
+                <tr>
+                  <th>Fecha</th>
+                  <th>Tipo</th>
+                  <th>Resultado</th>
+                  <th>Concepto</th>
+                  <th>Responsable</th>
+                  <th>Importe</th>
+                  <th>Pend.</th>
+                  <th>Texto</th>
+                </tr>
+              </thead>
+              <tbody>
+                {data.eventos.map((e) => (
+                  <tr key={e.HGCodigo}>
+                    <td>{fmtCell(e.HGFecha)}</td>
+                    <td>{e.tipoEvento ?? <span className="muted">—</span>}</td>
+                    <td>{e.resultado ?? <span className="muted">—</span>}</td>
+                    <td>{e.concepto ?? <span className="muted">—</span>}</td>
+                    <td>{e.responsable ?? <span className="muted">—</span>}</td>
+                    <td>{e.HGImporte ? `${fmtCell(e.HGImporte)} ${e.moneda ?? ''}` : ''}</td>
+                    <td>{e.HGPendiente ? 'Sí' : 'No'}</td>
+                    <td>{fmtCell(e.HGTexto)}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          ) : (
+            <p className="muted">Sin eventos.</p>
+          )}
+          <p className="muted" style={{ marginTop: 8 }}>
             {data.historialCount} movimientos en HistDeta.{' '}
-            <Link
-              href={`/datos?table=HistDeta`}
-            >
-              explorar
-            </Link>
+            <Link href={`/datos?table=Eventos`}>explorar eventos</Link>
           </p>
         </>
       )}

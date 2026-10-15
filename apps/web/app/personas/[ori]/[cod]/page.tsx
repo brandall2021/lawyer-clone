@@ -3,7 +3,7 @@
 import { useEffect, useState } from 'react'
 import { useParams } from 'next/navigation'
 import Link from 'next/link'
-import { fmtCell, getJSON } from '../../../lib/format'
+import { fmtCell, getJSON, sendJSON } from '../../../lib/format'
 
 type Persona = Record<string, unknown>
 
@@ -24,6 +24,17 @@ type DecodedField = {
   descripcion: string | null
 }
 
+type Evento = {
+  HGCodigo: number
+  HGCodOriGes: number
+  HGCodGes: number
+  HGFecha: string | null
+  HGTexto: string
+  tipoEvento: string | null
+  resultado: string | null
+  responsable: string | null
+}
+
 type Domicilio = {
   PDNro: number
   PDCalle: string
@@ -39,6 +50,7 @@ type Mail = {
   PMAddres: string
   PMDescrip: string
   PMTipo: number
+  tipoDesc: string | null
 }
 
 type GestLink = {
@@ -54,9 +66,34 @@ type Resp = {
   telefonos: Telefono[]
   domicilios: Domicilio[]
   mails: Mail[]
+  eventos: Evento[]
   gestionesDeudor: GestLink[]
   gestionesAcreedor: GestLink[]
 }
+
+const FORM_FIELDS: Array<{ name: string; label: string; type?: string }> = [
+  { name: 'PECodTipDoc', label: 'Tipo Doc.' },
+  { name: 'PENumDoc', label: 'N° Doc.' },
+  { name: 'PEPrefijo', label: 'Prefijo' },
+  { name: 'PEApellido', label: 'Apellido' },
+  { name: 'PENombre', label: 'Nombre' },
+  { name: 'PESexo', label: 'Sexo' },
+  { name: 'PETipo', label: 'Tipo' },
+  { name: 'PEClase', label: 'Clase' },
+  { name: 'PEEstCiv', label: 'Estado Civil' },
+  { name: 'PECondTribut', label: 'Cond. Tributaria' },
+  { name: 'PECodNac', label: 'Nacionalidad' },
+  { name: 'PECodSitBcra', label: 'Sit. BCRA' },
+  { name: 'PEFecNac', label: 'Fec. Nac.', type: 'date' },
+  { name: 'PEIDFIscal', label: 'ID Fiscal' },
+  { name: 'PEObserv', label: 'Observaciones' },
+  { name: 'PEDomCalle', label: 'Calle' },
+  { name: 'PEDomNum', label: 'N°' },
+  { name: 'PEDomPiso', label: 'Piso' },
+  { name: 'PEDomDpto', label: 'Dpto' },
+  { name: 'PEDomCodPos', label: 'Cod. Postal' },
+  { name: 'PEDomLoc', label: 'Localidad' },
+]
 
 export default function PersonaDetailPage() {
   const params = useParams()
@@ -64,15 +101,46 @@ export default function PersonaDetailPage() {
   const cod = params?.cod as string
   const [data, setData] = useState<Resp | null>(null)
   const [err, setErr] = useState<string | null>(null)
+  const [editing, setEditing] = useState(false)
+  const [form, setForm] = useState<Record<string, string>>({})
+  const [msg, setMsg] = useState<string | null>(null)
+
+  async function load() {
+    if (!ori || !cod) return
+    const r = await getJSON<Resp>(`/api/personas/${ori}/${cod}`)
+    if (!r) setErr('Persona no encontrada')
+    else setData(r)
+  }
 
   useEffect(() => {
-    if (!ori || !cod) return
-    ;(async () => {
-      const r = await getJSON<Resp>(`/api/personas/${ori}/${cod}`)
-      if (!r) setErr('Persona no encontrada')
-      else setData(r)
-    })()
+    load()
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [ori, cod])
+
+  function startEdit() {
+    if (!data) return
+    const f: Record<string, string> = {}
+    for (const { name } of FORM_FIELDS) {
+      const v = data.persona[name]
+      f[name] = v === null || v === undefined ? '' : fmtCell(v)
+    }
+    setForm(f)
+    setMsg(null)
+    setEditing(true)
+  }
+
+  async function save() {
+    const body: Record<string, unknown> = {}
+    for (const { name } of FORM_FIELDS) body[name] = form[name] ?? ''
+    const r = await sendJSON(`/api/personas/${ori}/${cod}`, 'PATCH', body)
+    if (!r.ok) {
+      setMsg(`Error: ${r.error}`)
+      return
+    }
+    setEditing(false)
+    setMsg('Guardado correctamente.')
+    await load()
+  }
 
   const gLink = (g: GestLink) => (
     <Link key={`${g.GECodOri}-${g.GECodGest}`} href={`/gestiones/${g.GECodOri}/${g.GECodGest}`}>
@@ -94,6 +162,48 @@ export default function PersonaDetailPage() {
         </span>
       </h1>
       {err && <p style={{ color: '#ff8080' }}>{err}</p>}
+
+      {data && !editing && (
+        <p>
+          <button className="btn" onClick={startEdit}>
+            Editar
+          </button>{' '}
+          {msg && <span className="muted">{msg}</span>}
+        </p>
+      )}
+
+      {data && editing && (
+        <div className="form-card">
+          <h2>Editar persona</h2>
+          <div className="form-grid">
+            {FORM_FIELDS.map(({ name, label, type }) => (
+              <label key={name}>
+                <span>{label}</span>
+                <input
+                  type={type ?? 'text'}
+                  value={form[name] ?? ''}
+                  onChange={(e) => setForm((f) => ({ ...f, [name]: e.target.value }))}
+                />
+              </label>
+            ))}
+          </div>
+          {msg && <p style={{ color: '#ff8080' }}>{msg}</p>}
+          <div className="row">
+            <button className="btn" onClick={save}>
+              Guardar
+            </button>
+            <button
+              className="btn ghost"
+              onClick={() => {
+                setEditing(false)
+                setMsg(null)
+              }}
+            >
+              Cancelar
+            </button>
+          </div>
+        </div>
+      )}
 
       {data && (
         <>
@@ -200,13 +310,47 @@ export default function PersonaDetailPage() {
                   <tr key={m.PMCodigo}>
                     <td>{fmtCell(m.PMAddres)}</td>
                     <td>{fmtCell(m.PMDescrip)}</td>
-                    <td>{m.PMTipo}</td>
+                    <td>{m.tipoDesc ?? m.PMTipo}</td>
                   </tr>
                 ))}
               </tbody>
             </table>
           ) : (
             <p className="muted">Sin correos.</p>
+          )}
+
+          <h2 style={{ marginTop: 16 }}>Eventos recientes ({data.eventos.length})</h2>
+          {data.eventos.length ? (
+            <table className="grid">
+              <thead>
+                <tr>
+                  <th>Fecha</th>
+                  <th>Gestión</th>
+                  <th>Tipo</th>
+                  <th>Resultado</th>
+                  <th>Responsable</th>
+                  <th>Texto</th>
+                </tr>
+              </thead>
+              <tbody>
+                {data.eventos.map((e) => (
+                  <tr key={`${e.HGCodOriGes}-${e.HGCodGes}-${e.HGCodigo}`}>
+                    <td>{fmtCell(e.HGFecha)}</td>
+                    <td>
+                      <Link href={`/gestiones/${e.HGCodOriGes}/${e.HGCodGes}`}>
+                        #{e.HGCodGes}
+                      </Link>
+                    </td>
+                    <td>{e.tipoEvento ?? <span className="muted">—</span>}</td>
+                    <td>{e.resultado ?? <span className="muted">—</span>}</td>
+                    <td>{e.responsable ?? <span className="muted">—</span>}</td>
+                    <td>{fmtCell(e.HGTexto)}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          ) : (
+            <p className="muted">Sin eventos.</p>
           )}
 
           <h2 style={{ marginTop: 16 }}>

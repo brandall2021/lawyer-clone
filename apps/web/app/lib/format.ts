@@ -19,3 +19,22 @@ export async function getJSON<T>(url: string): Promise<T | null> {
     return null
   }
 }
+
+export async function sendJSON<T>(
+  url: string,
+  method: 'POST' | 'PATCH' | 'PUT' | 'DELETE',
+  body?: unknown
+): Promise<{ ok: boolean; data?: T; error?: string }> {
+  try {
+    const r = await fetch(url, {
+      method,
+      headers: { 'Content-Type': 'application/json' },
+      body: body === undefined ? undefined : JSON.stringify(body),
+    })
+    const j = (await r.json().catch(() => null)) as (T & { error?: string }) | null
+    if (!r.ok) return { ok: false, error: j?.error ?? `HTTP ${r.status}` }
+    return { ok: true, data: j ?? undefined }
+  } catch (e) {
+    return { ok: false, error: (e as Error).message }
+  }
+}

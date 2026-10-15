@@ -1,6 +1,6 @@
 import type { FastifyPluginAsync } from 'fastify'
 import { prisma } from '../db'
-import { decodeRow, decodeValue } from '../lib/decode'
+import { decodeRow, decodeValue, decodeEvento, EVENTO_COLUMNS } from '../lib/decode'
 
 const listSelect = {
   GECodOri: true,
@@ -40,7 +40,82 @@ async function personasByKeys(keys: Key[]) {
   return m
 }
 
+const GESTION_REQUIRED = [
+  'GECaratula', 'GENumCar', 'GENroPart', 'GENumExt1', 'GENumExt2',
+  'GEHabilitada', 'GEPrincipal', 'GEMontoTran',
+  'GECodOri1erCli', 'GECod1erCli', 'GECodOri1erOp', 'GECod1erOp',
+]
+
+const GESTION_EDITABLE = [
+  'GECaratula', 'GENumCar', 'GENroPart', 'GENumExt1', 'GENumExt2',
+  'GEHabilitada', 'GEPrincipal', 'GEMontoTran', 'GEMoneda',
+  'GECodTipGes', 'GECodEst', 'GECodSit', 'GECodCar', 'GECodAre', 'GECodRes',
+  'GECodEstrat', 'GECodMora', 'GECodProd', 'GECodCamp', 'GECodTipPro',
+  'GECodEstPro', 'GECodSiPro', 'GECodSeg1', 'GECodSeg2', 'GECodSeg3', 'GECodSeg4',
+  'GECodEstu', 'GECodSuperv', 'GEComent', 'GEObserv', 'GEFecIni', 'GEFecFin',
+] as const
+
+const GESTION_NUMERIC = new Set([
+  'GEMontoTran', 'GEMoneda', 'GECodTipGes', 'GECodEst', 'GECodSit', 'GECodCar',
+  'GECodAre', 'GECodRes', 'GECodEstrat', 'GECodMora', 'GECodProd', 'GECodCamp',
+  'GECodTipPro', 'GECodEstPro', 'GECodSiPro', 'GECodSeg1', 'GECodSeg2',
+  'GECodSeg3', 'GECodSeg4', 'GECodEstu', 'GECodSuperv',
+])
+
+function coerceGestion(campo: string, v: unknown): unknown {
+  if (v === '' || v === undefined) return GESTION_NUMERIC.has(campo) ? null : ''
+  if (GESTION_NUMERIC.has(campo)) return Number(v)
+  if (campo === 'GEHabilitada' || campo === 'GEPrincipal') return Boolean(v)
+  return v
+}
+
 export const gestionesRoutes: FastifyPluginAsync = async (app) => {
+  app.post('/gestiones', async (req, reply) => {
+    const body = (req.body ?? {}) as Record<string, unknown>
+    const ori = Number(body.GECodOri ?? 1) || 1
+    const max = await prisma.gestion.aggregate({
+      where: { GECodOri: ori },
+      _max: { GECodGest: true },
+    })
+    const cod = (max._max.GECodGest ?? 0) + 1
+    const data: Record<string, unknown> = {
+      GECodOri: ori,
+      GECodGest: cod,
+      GEHabilitada: true,
+      GEPrincipal: false,
+      GEMontoTran: 0,
+      GECodOri1erCli: 0,
+      GECod1erCli: 0,
+      GECodOri1erOp: 0,
+      GECod1erOp: 0,
+    }
+    for (const c of GESTION_REQUIRED) if (!(c in data)) data[c] = ''
+    for (const k of GESTION_EDITABLE) if (k in body) data[k] = coerceGestion(k, body[k])
+    try {
+      await prisma.gestion.create({ data: data as never })
+    } catch (e) {
+      return reply.code(400).send({ error: (e as Error).message })
+    }
+    return { ok: true, GECodOri: ori, GECodGest: cod }
+  })
+
+  app.patch('/gestiones/:ori/:cod', async (req, reply) => {
+    const { ori, cod } = req.params as { ori: string; cod: string }
+    const body = (req.body ?? {}) as Record<string, unknown>
+    const data: Record<string, unknown> = {}
+    for (const k of GESTION_EDITABLE) if (k in body) data[k] = coerceGestion(k, body[k])
+    if (!Object.keys(data).length) return reply.code(400).send({ error: 'sin campos editables' })
+    try {
+      const row = await prisma.gestion.update({
+        where: { GECodOri_GECodGest: { GECodOri: Number(ori), GECodGest: Number(cod) } },
+        data: data as never,
+      })
+      return { ok: true, gestion: row }
+    } catch (e) {
+      return reply.code(400).send({ error: (e as Error).message })
+    }
+  })
+
   app.get('/gestiones', async (req) => {
     const { q, page, pageSize } = req.query as {
       q?: string
@@ -104,9 +179,22 @@ export const gestionesRoutes: FastifyPluginAsync = async (app) => {
       ...abo.map((a) => ({ ori: a.HACodOri, cod: a.HACodAbo })),
     ])
 
+    const evs = await prisma.$queryRawUnsafe<Array<Record<string, unknown>>>(
+      `SELECT ${EVENTO_COLUMNS}
+       FROM "Eventos"
+       WHERE "HGCodOriGes" = $1 AND "HGCodGes" = $2
+       ORDER BY "HGFecha" DESC NULLS LAST, "HGCodigo" DESC
+       LIMIT $3`,
+      oriN,
+      codN,
+      500
+    )
+    const eventos = await Promise.all(evs.map((e) => decodeEvento(e)))
+
     return {
       gestion,
       campos,
+      eventos,
       historialCount,
       deudores: deu.map((d) => ({
         ...d,
@@ -126,7 +214,13 @@ export const gestionesRoutes: FastifyPluginAsync = async (app) => {
           tipoDesc: await decodeValue('T', 'TFTipoTel', t.TFTipoTel),
         }))
       ),
-      agenda,
+      agenda: await Promise.all(
+        agenda.map(async (a) => ({
+          ...a,
+          tipoEvento: await decodeValue('A', 'AGCodTipEve', a.AGCodTipEve),
+          responsable: await decodeValue('A', 'AGCodUsu', a.AGCodUsu),
+        }))
+      ),
     }
   })
 }
