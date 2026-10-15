@@ -46,6 +46,7 @@ type Telefono = {
   TFNumTel: string
   TFTipoTel: number
   TFEsCelular: boolean
+  tipoDesc: string | null
 }
 
 type Agenda = {
@@ -55,8 +56,17 @@ type Agenda = {
   AGEstado: number
 }
 
+type DecodedField = {
+  campo: string
+  etiqueta: string
+  tabla: string
+  codigo: unknown
+  descripcion: string | null
+}
+
 type Resp = {
   gestion: Record<string, unknown>
+  campos: DecodedField[]
   historialCount: number
   deudores: Deudor[]
   acreedores: Acreedor[]
@@ -105,15 +115,36 @@ export default function GestionDetailPage() {
 
       {data && (
         <>
-          <h2>Datos</h2>
+          <h2>Clasificación</h2>
           <div className="detail-grid">
-            {Object.entries(data.gestion).map(([k, v]) => (
-              <div key={k} style={{ display: 'contents' }}>
-                <div className="k">{k}</div>
-                <div className="v">{fmtCell(v)}</div>
+            {data.campos.length === 0 && (
+              <div className="v muted" style={{ gridColumn: '1 / -1' }}>
+                Sin datos decodificados.
+              </div>
+            )}
+            {data.campos.map((c) => (
+              <div key={c.campo} style={{ display: 'contents' }}>
+                <div className="k" title={c.campo}>
+                  {c.etiqueta}
+                </div>
+                <div className="v">
+                  {c.descripcion ?? <span className="muted">{fmtCell(c.codigo)}</span>}
+                </div>
               </div>
             ))}
           </div>
+
+          <details style={{ marginTop: 16 }}>
+            <summary style={{ cursor: 'pointer' }}>Datos crudos ({Object.keys(data.gestion).length} campos)</summary>
+            <div className="detail-grid" style={{ marginTop: 8 }}>
+              {Object.entries(data.gestion).map(([k, v]) => (
+                <div key={k} style={{ display: 'contents' }}>
+                  <div className="k">{k}</div>
+                  <div className="v">{fmtCell(v)}</div>
+                </div>
+              ))}
+            </div>
+          </details>
 
           <h2 style={{ marginTop: 16 }}>Deudores ({data.deudores.length})</h2>
           <table className="grid">
@@ -218,7 +249,7 @@ export default function GestionDetailPage() {
                 {data.telefonos.map((t) => (
                   <tr key={t.TFCodigo}>
                     <td>{fmtCell(t.TFNumTel)}</td>
-                    <td>{t.TFTipoTel}</td>
+                    <td>{t.tipoDesc ?? t.TFTipoTel}</td>
                     <td>{t.TFEsCelular ? 'Sí' : 'No'}</td>
                   </tr>
                 ))}

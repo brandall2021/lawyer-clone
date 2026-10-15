@@ -1,5 +1,6 @@
 import type { FastifyPluginAsync } from 'fastify'
 import { prisma } from '../db'
+import { decodeRow, decodeValue } from '../lib/decode'
 
 const listSelect = {
   GECodOri: true,
@@ -82,6 +83,8 @@ export const gestionesRoutes: FastifyPluginAsync = async (app) => {
     })
     if (!gestion) return reply.code(404).send({ error: 'not found' })
 
+    const campos = await decodeRow('G', gestion as unknown as Record<string, unknown>)
+
     const [deu, acr, abo, tel, agenda, historialCount] = await Promise.all([
       prisma.gestDeu.findMany({ where: { GDCodOriGes: oriN, GDCodGest: codN } }),
       prisma.gestAcre.findMany({ where: { GACodOriGes: oriN, GACodGest: codN } }),
@@ -103,6 +106,7 @@ export const gestionesRoutes: FastifyPluginAsync = async (app) => {
 
     return {
       gestion,
+      campos,
       historialCount,
       deudores: deu.map((d) => ({
         ...d,
@@ -116,7 +120,12 @@ export const gestionesRoutes: FastifyPluginAsync = async (app) => {
         ...a,
         persona: pmap.get(`${a.HACodOri}-${a.HACodAbo}`) ?? null,
       })),
-      telefonos: tel,
+      telefonos: await Promise.all(
+        tel.map(async (t) => ({
+          ...t,
+          tipoDesc: await decodeValue('T', 'TFTipoTel', t.TFTipoTel),
+        }))
+      ),
       agenda,
     }
   })

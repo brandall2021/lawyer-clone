@@ -13,6 +13,15 @@ type Telefono = {
   TFTipoTel: number
   TFEsCelular: boolean
   TFObserv: string
+  tipoDesc: string | null
+}
+
+type DecodedField = {
+  campo: string
+  etiqueta: string
+  tabla: string
+  codigo: unknown
+  descripcion: string | null
 }
 
 type Domicilio = {
@@ -41,6 +50,7 @@ type GestLink = {
 
 type Resp = {
   persona: Persona
+  campos: DecodedField[]
   telefonos: Telefono[]
   domicilios: Domicilio[]
   mails: Mail[]
@@ -87,15 +97,37 @@ export default function PersonaDetailPage() {
 
       {data && (
         <>
-          <h2>Datos</h2>
-          <div className="detail-grid">
-            {Object.entries(data.persona).map(([k, v]) => (
-              <div key={k} style={{ display: 'contents' }}>
-                <div className="k">{k}</div>
-                <div className="v">{fmtCell(v)}</div>
+          {data.campos.length > 0 && (
+            <>
+              <h2>Clasificación</h2>
+              <div className="detail-grid">
+                {data.campos.map((c) => (
+                  <div key={c.campo} style={{ display: 'contents' }}>
+                    <div className="k" title={c.campo}>
+                      {c.etiqueta}
+                    </div>
+                    <div className="v">
+                      {c.descripcion ?? <span className="muted">{fmtCell(c.codigo)}</span>}
+                    </div>
+                  </div>
+                ))}
               </div>
-            ))}
-          </div>
+            </>
+          )}
+
+          <details style={{ marginTop: 16 }}>
+            <summary style={{ cursor: 'pointer' }}>
+              Datos crudos ({Object.keys(data.persona).length} campos)
+            </summary>
+            <div className="detail-grid" style={{ marginTop: 8 }}>
+              {Object.entries(data.persona).map(([k, v]) => (
+                <div key={k} style={{ display: 'contents' }}>
+                  <div className="k">{k}</div>
+                  <div className="v">{fmtCell(v)}</div>
+                </div>
+              ))}
+            </div>
+          </details>
 
           <h2 style={{ marginTop: 16 }}>Teléfonos ({data.telefonos.length})</h2>
           {data.telefonos.length ? (
@@ -112,7 +144,7 @@ export default function PersonaDetailPage() {
                 {data.telefonos.map((t) => (
                   <tr key={t.TFCodigo}>
                     <td>{fmtCell(t.TFNumTel)}</td>
-                    <td>{t.TFTipoTel}</td>
+                    <td>{t.tipoDesc ?? t.TFTipoTel}</td>
                     <td>{t.TFEsCelular ? 'Sí' : 'No'}</td>
                     <td>{fmtCell(t.TFObserv)}</td>
                   </tr>

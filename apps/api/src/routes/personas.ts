@@ -1,5 +1,6 @@
 import type { FastifyPluginAsync } from 'fastify'
 import { prisma } from '../db'
+import { decodeRow, decodeValue } from '../lib/decode'
 
 const listSelect = {
   PECodOri: true,
@@ -71,6 +72,8 @@ export const personasRoutes: FastifyPluginAsync = async (app) => {
       }),
     ])
 
+    const campos = await decodeRow('P', row as unknown as Record<string, unknown>)
+
     const gestKeys = new Map<string, { ori: number; cod: number }>()
     for (const d of deu) gestKeys.set(`${d.GDCodOriGes}-${d.GDCodGest}`, { ori: d.GDCodOriGes, cod: d.GDCodGest })
     for (const a of acr) gestKeys.set(`${a.GACodOriGes}-${a.GACodGest}`, { ori: a.GACodOriGes, cod: a.GACodGest })
@@ -86,7 +89,13 @@ export const personasRoutes: FastifyPluginAsync = async (app) => {
 
     return {
       persona: row,
-      telefonos,
+      campos,
+      telefonos: await Promise.all(
+        telefonos.map(async (t) => ({
+          ...t,
+          tipoDesc: await decodeValue('T', 'TFTipoTel', t.TFTipoTel),
+        }))
+      ),
       domicilios,
       mails,
       gestionesDeudor: deu.map((d) => ({

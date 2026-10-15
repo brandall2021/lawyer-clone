@@ -1,7 +1,12 @@
 import type { FastifyPluginAsync } from 'fastify'
 import { prisma } from '../db'
+import { getDecoders } from '../lib/decode'
 
 export const metaRoutes: FastifyPluginAsync = async (app) => {
+  app.get('/meta/decoders', async () => {
+    return getDecoders()
+  })
+
   app.get('/meta/forms', async () => {
     return prisma.listForm.findMany({ take: 1000 })
   })
