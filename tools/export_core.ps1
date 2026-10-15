@@ -10,13 +10,12 @@ New-Item -ItemType Directory -Path $OutDir -Force | Out-Null
 # Credenciales: desde variables de entorno o desde tools\creds.local.ps1 (no commiteado).
 $credFile = Join-Path $PSScriptRoot 'creds.local.ps1'
 if (Test-Path $credFile) { . $credFile }
-foreach ($v in @('LT_USER','LT_DOMAIN','LT_PASS')) {
+foreach ($v in @('LT_SERVER','LT_USER','LT_DOMAIN','LT_PASS')) {
     if (-not [Environment]::GetEnvironmentVariable($v)) {
         Write-Error "Falta la variable $v. Definila por entorno o crea tools\creds.local.ps1 (gitignored)."
         exit 3
     }
 }
-if (-not $env:LT_SERVER) { $env:LT_SERVER = '192.168.35.54,1433' }
 
 Add-Type -ReferencedAssemblies 'System.Data' -TypeDefinition @"
 using System;
