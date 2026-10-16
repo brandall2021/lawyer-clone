@@ -50,13 +50,19 @@ npm run typecheck
 | Método | Ruta | Descripción |
 | ------ | ---- | ----------- |
 | GET | `/api/health` | Estado del servicio |
+| GET | `/api/stats` | Resumen del dashboard (conteos, gestiones por estado/área/moneda, eventos por tipo/año) |
 | GET | `/api/tables/count` | Cantidad de tablas |
-| GET | `/api/personas?q=&page=&pageSize=` | Listado/búsqueda de personas |
-| GET | `/api/personas/:ori/:cod` | Detalle: teléfonos, domicilios, correos y gestiones |
-| GET | `/api/gestiones?q=&page=&pageSize=` | Listado/búsqueda de gestiones |
-| GET | `/api/gestiones/:ori/:cod` | Detalle: deudores, acreedores, abogados, agenda, historial |
+| GET | `/api/meta/decoders` | Diccionario de decodificación (`ListTipo` + catálogos) |
 | GET | `/api/meta/forms` | Definiciones de formularios (`ListForm`) |
 | GET | `/api/meta/forms/:ori/:codigo/spec` | Especificación de un formulario (columnas y bandas) |
+| GET | `/api/personas?q=&page=&pageSize=` | Listado/búsqueda de personas |
+| GET | `/api/personas/:ori/:cod` | Detalle: clasificación decodificada, teléfonos, domicilios, correos, eventos y gestiones |
+| POST | `/api/personas` | Alta de persona (`PECodigo` autogenerado) |
+| PATCH | `/api/personas/:ori/:cod` | Edición de campos permitidos |
+| GET | `/api/gestiones?q=&page=&pageSize=` | Listado/búsqueda de gestiones |
+| GET | `/api/gestiones/:ori/:cod` | Detalle: deudores, acreedores, abogados, teléfonos, agenda y eventos decodificados |
+| POST | `/api/gestiones` | Alta de gestión (`GECodGest` autogenerado) |
+| PATCH | `/api/gestiones/:ori/:cod` | Edición de campos permitidos |
 | GET | `/api/data/tables` | Explorador genérico: tablas disponibles |
 | GET | `/api/data/:table?q=&page=&pageSize=` | Filas de cualquier tabla (introspección en runtime) |
 | GET | `/api/data/:table/row?<pk>=...` | Fila por clave primaria |
@@ -68,6 +74,8 @@ El esquema original (SQL Server, `LawyerTools50`) se migró a PostgreSQL. En `db
 - `schema/` — inventario, columnas/claves y código (procedimientos/triggers) del esquema original.
 - `pg/01_ddl.sql` — DDL de PostgreSQL (todas las tablas).
 - `pg/core.txt` — lista de tablas migradas.
+
+Además de las tablas núcleo, el historial de gestiones (`HistGest`, ~477k filas) se migró a una tabla **`Eventos`** sin la columna `HGObserv` (imagen de ~5 GB), usada para el historial decodificado en las fichas de gestión y persona. La decodificación de códigos (área, estado, tipo de evento, resultado, moneda, etc.) se resuelve con el diccionario `ListTipo` y las tablas de catálogo (`apps/api/src/lib/decode.ts`).
 
 Los scripts de `tools/` (PowerShell) extraen y cargan los datos. Requieren credenciales por variables de entorno o un archivo local `tools/creds.local.ps1` (no versionado):
 
