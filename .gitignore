@@ -21,6 +21,8 @@ tools/creds.local.ps1
 # --- Datos migrados de la base legal (contenido sensible del cliente) ---
 db-export/data/
 db-export/pg/load_core.sql
+db-export/schema/02_code.json
+db-export/schema/02_code.sql
 _export.log
 _export_report.json
 
