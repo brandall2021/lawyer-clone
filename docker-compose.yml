@@ -1,5 +1,5 @@
 services:
-  postgres:
+  lawyer-db:
     image: postgres:16-alpine
     environment:
       POSTGRES_USER: lawyer
@@ -14,28 +14,28 @@ services:
       retries: 10
     restart: unless-stopped
 
-  api:
+  lawyer-api:
     build:
       context: .
       dockerfile: deploy/Dockerfile.api
     environment:
-      DATABASE_URL: postgresql://lawyer:${POSTGRES_PASSWORD}@postgres:5432/lawyer_clone?sslmode=disable
+      DATABASE_URL: postgresql://lawyer:${POSTGRES_PASSWORD}@lawyer-db:5432/lawyer_clone?sslmode=disable
       PORT: 8080
       NODE_ENV: production
     depends_on:
-      postgres:
+      lawyer-db:
         condition: service_healthy
     restart: unless-stopped
 
-  web:
+  lawyer-web:
     build:
       context: .
       dockerfile: deploy/Dockerfile.web
     environment:
-      API_ORIGIN: http://api:8080
+      API_ORIGIN: http://lawyer-api:8080
       NODE_ENV: production
     depends_on:
-      - api
+      - lawyer-api
     restart: unless-stopped
 
 volumes:
