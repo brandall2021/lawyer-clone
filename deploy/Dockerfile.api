@@ -8,9 +8,10 @@ COPY apps/web/package.json ./apps/web/
 RUN npm ci --no-audit --no-fund
 
 COPY apps/api ./apps/api
+COPY deploy/init-schema.cjs ./deploy/init-schema.cjs
 
 WORKDIR /app/apps/api
 RUN npx prisma generate
 
 EXPOSE 8080
-CMD ["sh", "-c", "npx prisma db push --skip-generate && node --import tsx src/index.ts"]
+CMD ["sh", "-c", "node /app/deploy/init-schema.cjs && node --import tsx src/index.ts"]
