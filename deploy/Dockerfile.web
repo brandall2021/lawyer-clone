@@ -9,6 +9,7 @@ RUN npm ci --no-audit --no-fund
 
 COPY apps/web ./apps/web
 
+ENV API_ORIGIN=http://api:8080
 RUN npm --workspace web run build
 
 WORKDIR /app/apps/web
